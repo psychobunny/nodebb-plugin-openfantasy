@@ -1,9 +1,9 @@
 <!-- IF nocharacter -->
 <h3>Create a character</h3>
-<div class="well">
-	<form role="form">
-		<div class="row">
-			<div class="col-lg-9">
+<div class="row create-character">
+	<div class="col-lg-9">
+		<div class="well">
+			<form role="form">
 				<div class="form-group">
 					<label for="character_name">Character Name</label>
 					<input type="email" class="form-control" id="character_name" placeholder="Enter your name...">
@@ -40,14 +40,25 @@
 						<!-- END alignments -->
 					</select>
 				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="alert alert-info">
-
-				</div>
-			</div>
+				<button type="button" class="btn btn-primary btn-lg btn-block">Create Character</button>
+			</form>
 		</div>
-	</form>
+	</div>
+	<div class="col-lg-3">
+		<div class="alert alert-info details">
+			Create a character
+		</div>
+	</div>
 </div>
+
+<script type="text/javascript">
+$('document').ready(function() {
+	$('.create-character [data-desc]').on('mouseover', function() {
+		$('.details').html(this.getAttribute('data-desc'));
+	})
+});
+</script>
 <!-- ENDIF nocharacter -->
+
+
 
