@@ -1,0 +1,15 @@
+{
+	"id": "nodebb-plugin-openfantasy",
+	"name": "OpenFantasy",
+	"description": "A fully featured RPG (Role Playing Game) plugin for NodeBB",
+	"url": "https://github.com/psychobunny/nodebb-plugin-openfantasy",
+	"library": "./openfantasy.js",
+	"hooks": [
+		{ "hook": "filter:header.build", "method": "addNavigation", "callbacked": false },
+		{ "hook": "filter:server.create_routes", "method": "addRoute", "callbacked": true }
+	],
+	"staticDir": "./static",
+	"css": [
+		"style.css"
+	]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "nodebb-plugin-openfantasy",
+  "version": "0.0.1",
+  "description": "A fully featured RPG (Role Playing Game) plugin for NodeBB",
+  "main": "library.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psychobunny/nodebb-plugin-openfantasy"
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "openfantasy",
+    "rpg",
+    "forum"
+  ],
+  "author": {
+    "name": "psychobunny",
+    "email": "psycho.bunny@hotmail.com"
+  },
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/psychobunny/nodebb-plugin-openfantasy/issues"
+  },
+  "readmeFilename": "README.md",
+  "_id": "nodebb-plugin-openfantasy@0.0.1",
+  "_from": "nodebb-plugin-openfantasy@~0.0.1"
+}
