@@ -3,7 +3,8 @@ var	fs = require('fs'),
 	path = require('path'),
 	data = require('./data/data.js'),
 	db = module.parent.require('../src/database.js'),
-	templates = module.parent.require('../public/src/templates.js');
+	templates = module.parent.require('../public/src/templates.js'),
+	translator = module.parent.require('../public/src/translator.js');
 
 
 
@@ -88,15 +89,34 @@ var Character = {};
 
 
 	Character.render = function(req, res, callback) {
-		var content = templates.prepare(OF.templates['character.tpl']).parse({});
+		var content = templates.prepare(OF.templates['character.tpl']);
 
-		callback({
-			req: req,
-			res: res,
-			route: "/character",
-			name: "Character",
-			content: content
-		});
+		if (req.user && req.user.uid) {
+			Character.getCharacterFields(req.user.uid, ["character_hp", "character_hp_max", "character_mp", "character_mp_max", "character_level"], function(data) {
+				if (data) {
+					callback({
+						content: content.parse(data)
+					})
+				} else {
+					content = content.parse({
+							"nocharacter": true,
+							"races": OF.data.races,
+							"classes": OF.data.classes,
+							"elements": OF.data.elements,
+							"alignments": OF.data.alignments
+						});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+					
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
 	}
 }());
 
@@ -109,10 +129,6 @@ var Temple = {};
 			Character.getCharacterFields(req.user.uid, ["character_hp", "character_hp_max", "character_mp", "character_mp_max", "character_level"], function(data) {
 				if (data) {
 					callback({
-						req: req,
-						res: res,
-						route: "/temple",
-						name: "Temple",
 						content: content
 					});	
 				} else {
@@ -128,8 +144,18 @@ var Temple = {};
 }());
 
 var OF = {
-	templates: {}
+	templates: {},
+	data: data
 };
+
+OF.init = function() {
+	function setupTranslations() {
+		var lang = translator.getLanguage();
+		translator.addTranslation('of', require('./static/language/' + lang + '/openfantasy.json'));
+	}
+	
+	setupTranslations();
+}
 
 OF.addNavigation = function(custom_header, callback) {
 	custom_header.navigation = custom_header.navigation.concat(
@@ -186,4 +212,5 @@ OF.addRoute = function(custom_routes, callback) {
 	});
 };
 
+OF.init();
 module.exports = OF;
