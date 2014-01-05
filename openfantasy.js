@@ -1,6 +1,7 @@
 var	fs = require('fs'),
 	async = require('async'),
 	path = require('path'),
+	nconf = require('nconf'),
 	data = require('./data/data.js'),
 	db = module.parent.require('../src/database.js'),
 	templates = module.parent.require('../public/src/templates.js'),
@@ -148,13 +149,35 @@ var OF = {
 	data: data
 };
 
+var constants = Object.freeze({
+	"image_path": nconf.get('url') + "plugins/nodebb-plugin-openfantasy/images/"
+});
+
 OF.init = function() {
 	function setupTranslations() {
 		var lang = translator.getLanguage();
 		translator.addTranslation('of', require('./static/language/' + lang + '/openfantasy.json'));
 	}
+
+	function normalizeImagePaths(data) {
+		for (var d in data) {
+			if (data.hasOwnProperty(d)) {
+				if (data[d].constructor == Array || data[d] instanceof Object) {
+					data[d] = normalizeImagePaths(data[d]);
+				} else {
+					var extension = data[d].substr(data[d].length - 4).toLowerCase();
+					if (extension === '.png' || extension === '.jpg' || extension === '.jpeg' || extension === '.gif') {
+						data[d] = constants.image_path + data[d];
+					}
+				}
+			}
+		}
+		
+		return data;
+	}
 	
 	setupTranslations();
+	OF.data = normalizeImagePaths(OF.data);
 }
 
 OF.addNavigation = function(custom_header, callback) {
