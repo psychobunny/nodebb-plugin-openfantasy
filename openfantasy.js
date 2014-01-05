@@ -12,15 +12,32 @@ var	fs = require('fs'),
 
 var Character = {};
 (function() {
-	Character.create = function(uid, params) {
+	Character.create = function(req, res, callback) {
+		if (req.user && req.user.uid) {
+			var uid = req.user.uid;
+
+
+			Character.getCharacterField(req.user.uid, 'character_id', function(data) {
+				if (data === null) {
+					
+					
+				} else {
+					res.send(403);
+				}
+			});
+		} else {
+
+		}
+
+		return;
 		db.setObject('of:character:' + uid, {
 			character_id: uid,
-			character_name: character_name || null,
-			character_desc: character_desc || null,
-			character_race: character_race || null,
-			character_class: character_class || null,
-			character_alignment: character_alignment || null,
-			character_element: character_element || null,
+			character_name: req.body.character_name,
+			character_desc: req.body.character_desc,
+			character_race: req.body.character_race,
+			character_class: req.body.character_class,
+			character_alignment: req.body.character_alignment,
+			character_element: req.body.character_element,
 			character_hp: character_hp || null,
 			character_hp_max: character_hp_max || null,
 			character_mp: character_mp || null,
@@ -100,11 +117,12 @@ var Character = {};
 					})
 				} else {
 					content = content.parse({
-							"nocharacter": true,
+							"create_character": true,
 							"races": OF.data.races,
 							"classes": OF.data.classes,
 							"elements": OF.data.elements,
-							"alignments": OF.data.alignments
+							"alignments": OF.data.alignments,
+							"_csrf": res.locals.csrf_token
 						});
 
 					translator.translate(content, function(content) {
@@ -172,7 +190,7 @@ OF.init = function() {
 				}
 			}
 		}
-		
+
 		return data;
 	}
 	
@@ -227,6 +245,16 @@ OF.addRoute = function(custom_routes, callback) {
 					"route": "/temple",
 					"method": "get",
 					"options": Temple.render
+				}
+			]
+		);
+
+		custom_routes.api = custom_routes.api.concat(
+			[
+				{
+					"method": "post",
+					"route": "/openfantasy/character/create",
+					"callback": Character.create
 				}
 			]
 		);

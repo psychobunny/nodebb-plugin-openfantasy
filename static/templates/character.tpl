@@ -1,4 +1,4 @@
-<!-- IF nocharacter -->
+<!-- IF create_character -->
 <h3>Create a character</h3>
 <div class="row create-character">
 	<div class="col-lg-9">
@@ -40,14 +40,24 @@
 						<!-- END alignments -->
 					</select>
 				</div>
-				<button type="button" class="btn btn-primary btn-lg btn-block">Create Character</button>
+				<div class="form-group">
+					<label for="character_desc">Character Biography</label>
+					<textarea class="form-control" id="character_desc" placeholder="Enter character's biography..."></textarea>
+				</div>
+				<button type="button" class="btn btn-primary btn-lg btn-block submit">Create Character</button>
 			</form>
 		</div>
 	</div>
 	<div class="col-lg-3">
-		<div class="alert alert-info details">
-			<span>Create a character</span>
-			<img />
+		<div class="alert alert-info details hidden">
+			<div class="row text-center">
+				<div class="col-lg-12">
+					<img class="img-thumbnail" />
+				</div>
+				<div class="col-lg-12">
+					<span>Hover for more information</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -57,10 +67,25 @@ $('document').ready(function() {
 	$('.create-character [data-desc]').on('mouseover', function() {
 		$('.details span').html(this.getAttribute('data-desc'));
 		$('.details img').attr('src', this.getAttribute('data-src'));
+		$('.details').removeClass('hidden');
 	})
+
+	$('button.submit').on('click', function() {
+		$.post('./api/openfantasy/character/create', {
+			'character_alignment': $('#character_alignment').val(),
+			'character_element': $('#character_element').val(),
+			'character_race': $('#character_race').val(),
+			'character_class': $('#character_class').val(),
+			'character_name': $('#character_name').val(),
+			'character_desc': $('#character_desc').val(),
+			'_csrf': '{_csrf}'
+		},function(data) {
+			console.log(data);
+		});
+	});
 });
 </script>
-<!-- ENDIF nocharacter -->
+<!-- ENDIF create_character -->
 
 
 
