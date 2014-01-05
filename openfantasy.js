@@ -8,8 +8,6 @@ var	fs = require('fs'),
 	translator = module.parent.require('../public/src/translator.js');
 
 
-
-
 var Character = {};
 (function() {
 	Character.create = function(req, res, callback) {
@@ -19,99 +17,90 @@ var Character = {};
 
 			Character.getCharacterField(req.user.uid, 'character_id', function(data) {
 				if (data === null) {
-					
-					var character_might = character_might + (race['race_might_bonus'] - race['race_might_penalty']),
-						character_dexterity = character_dexterity + (race['race_dexterity_bonus'] - race['race_dexterity_penalty']),
-						character_constitution = character_constitution + (race['race_constitution_bonus'] - race['race_constitution_penalty']),
-						character_intelligence = character_intelligence + (race['race_intelligence_bonus'] - race['race_intelligence_penalty']),
-						character_wisdom = character_wisdom + (race['race_wisdom_bonus'] - race['race_wisdom_penalty']),
-						character_charisma = character_charisma + (race['race_charisma_bonus'] - race['race_charisma_penalty']),
-						character_magic_attack = character_magic_attack + (race['race_magic_attack_bonus'] - race['race_magic_attack_penalty']),
-						character_magic_resistance = character_magic_resistance + (race['race_magic_resistance_bonus'] - race['race_magic_resistance_penalty']),
+					var raceData = OF.data.races[req.body.character_race],
+						elementData = OF.data.elements[req.body.character_element],
+						classData = OF.data.classes[req.body.character_class];
 
-						character_skill_mining = 1 + (element['race_skill_mining_bonus'] + element['element_skill_mining_bonus']),
-						character_skill_stone = 1 + (element['race_skill_stone_bonus'] + element['element_skill_stone_bonus']),
-						character_skill_forge = 1 + (element['race_skill_forge_bonus'] + element['element_skill_forge_bonus']),
-						character_skill_enchantment = 1 + (element['race_skill_enchantment_bonus'] + element['element_skill_enchantment_bonus']),
-						character_skill_trading = 1 + (element['race_skill_trading_bonus'] + element['element_skill_trading_bonus']),
-						character_skill_thief = 1 + (element['race_skill_thief_bonus'] + element['element_skill_thief_bonus']);
+					var character_might = Math.floor(Math.random() * 10) + 10 + (raceData['race_might_bonus'] - raceData['race_might_penalty']),
+						character_dexterity = Math.floor(Math.random() * 10) + 10 + (raceData['race_dexterity_bonus'] - raceData['race_dexterity_penalty']),
+						character_constitution = Math.floor(Math.random() * 10) + 10 + (raceData['race_constitution_bonus'] - raceData['race_constitution_penalty']),
+						character_intelligence = Math.floor(Math.random() * 10) + 10 + (raceData['race_intelligence_bonus'] - raceData['race_intelligence_penalty']),
+						character_wisdom = Math.floor(Math.random() * 10) + 10 + (raceData['race_wisdom_bonus'] - raceData['race_wisdom_penalty']),
+						character_charisma = Math.floor(Math.random() * 10) + 10 + (raceData['race_charisma_bonus'] - raceData['race_charisma_penalty']),
+						character_magic_attack = Math.floor(Math.random() * 10) + 10 + (raceData['race_magic_attack_bonus'] - raceData['race_magic_attack_penalty']),
+						character_magic_resistance = Math.floor(Math.random() * 10) + 10 + (raceData['race_magic_resistance_bonus'] - raceData['race_magic_resistance_penalty']),
 
+						character_skill_mining = 1 + (raceData['race_skill_mining_bonus'] + elementData['element_skill_mining_bonus']),
+						character_skill_stone = 1 + (raceData['race_skill_stone_bonus'] + elementData['element_skill_stone_bonus']),
+						character_skill_forge = 1 + (raceData['race_skill_forge_bonus'] + elementData['element_skill_forge_bonus']),
+						character_skill_enchantment = 1 + (raceData['race_skill_enchantment_bonus'] + elementData['element_skill_enchantment_bonus']),
+						character_skill_trading = 1 + (raceData['race_skill_trading_bonus'] + elementData['element_skill_trading_bonus']),
+						character_skill_thief = 1 + (raceData['race_skill_thief_bonus'] + elementData['element_skill_thief_bonus']),
 
+						character_hp = classData['class_base_hp'],
+						character_hp_max = classData['class_base_hp'],
+						character_mp = classData['class_base_mp'],
+						character_mp_max = classData['class_base_mp'],
+						character_ac = classData['class_base_ac'];
 
+					db.setObject('of:character:' + uid, {
+						character_id: uid,
+						character_name: req.body.character_name,
+						character_desc: req.body.character_desc,
+						character_race: req.body.character_race,
+						character_class: req.body.character_class,
+						character_alignment: req.body.character_alignment,
+						character_element: req.body.character_element,
+						character_hp: character_hp,
+						character_hp_max: character_hp_max,
+						character_mp: character_mp,
+						character_mp_max: character_mp_max,
+						character_ac: character_ac,
+						character_xp: 0,
+						character_level: 0,
+						character_might: character_might,
+						character_dexterity: character_dexterity,
+						character_constitution: character_constitution,
+						character_intelligence: character_intelligence,
+						character_wisdom: character_wisdom,
+						character_charisma: character_charisma,
+						character_birth: Date.now(),
+						character_battle_limit: OF.data.config['character_battle_limit'],
+						character_skill_limit: OF.data.config['character_skill_limit'],
+						character_trading_limit: OF.data.config['character_trading_limit'],
+						character_thief_limit: OF.data.config['character_thief_limit'],
+						character_sp: 0,
+						character_magic_attack: character_magic_attack,
+						character_magic_resistance: character_magic_resistance,
+						character_skill_mining: character_skill_mining,
+						character_skill_stone: character_skill_stone,
+						character_skill_forge: character_skill_forge,
+						character_skill_enchantment: character_skill_enchantment,
+						character_skill_trading: character_skill_trading,
+						character_skill_thief: character_skill_thief,
+						character_skill_mining_uses: 0,
+						character_skill_stone_uses: 0,
+						character_skill_forge_uses: 0,
+						character_skill_enchantment_uses: 0,
+						character_skill_trading_uses: 0,
+						character_skill_thief_uses: 0,
+						character_victories: 0,
+						character_defeats: 0,
+						character_flees: 0,
+						character_double_ko: 0,
+						character_victories_pvp: 0,
+						character_defeats_pvp: 0,
+						character_flees_pvp: 0,
+						character_fp: 0
+					});
 				} else {
-					res.send(403);
+					return res.send(403);
 				}
 			});
 		} else {
-
+			return res.redirect('/login');
 		}
 
-		return;
-		db.setObject('of:character:' + uid, {
-			character_id: uid,
-			character_name: req.body.character_name,
-			character_desc: req.body.character_desc,
-			character_race: req.body.character_race,
-			character_class: req.body.character_class,
-			character_alignment: req.body.character_alignment,
-			character_element: req.body.character_element,
-			character_hp: character_hp || null,
-			character_hp_max: character_hp_max || null,
-			character_mp: character_mp || null,
-			character_mp_max: character_mp_max || null,
-			character_ac: character_ac || null,
-			character_xp: character_xp || null,
-			character_level: character_level || null,
-			character_might: character_might,
-			character_dexterity: character_dexterity,
-			character_constitution: character_constitution,
-			character_intelligence: character_intelligence,
-			character_wisdom: character_wisdom,
-			character_charisma: character_charisma,
-			character_birth: character_birth || null,
-			character_limit_update: character_limit_update || null,
-			character_battle_limit: character_battle_limit || null,
-			character_skill_limit: character_skill_limit || null,
-			character_trading_limit: character_trading_limit || null,
-			character_thief_limit: character_thief_limit || null,
-			character_sp: 0,
-			character_magic_attack: character_magic_attack,
-			character_magic_resistance: character_magic_resistance,
-			character_warehouse: character_warehouse || null,
-			character_warehouse_update: character_warehouse_update || null,
-			character_shop_update: character_shop_update || null,
-			character_skill_mining: character_skill_mining,
-			character_skill_stone: character_skill_stone,
-			character_skill_forge: character_skill_forge,
-			character_skill_enchantment: character_skill_enchantment,
-			character_skill_trading: character_skill_trading,
-			character_skill_thief: character_skill_thief,
-			character_skill_mining_uses: 0,
-			character_skill_stone_uses: 0,
-			character_skill_forge_uses: 0,
-			character_skill_enchantment_uses: 0,
-			character_skill_trading_uses: 0,
-			character_skill_thief_uses: 0,
-			character_victories: 0,
-			character_defeats: 0,
-			character_flees: 0,
-			//prefs_pvp_notif_pm: prefs_pvp_notif_pm || null, 
-			//prefs_pvp_allow: prefs_pvp_allow || null,
-			//prefs_tax_pm_notify: prefs_tax_pm_notify || null,
-			equip_armor: equip_armor || null,
-			equip_buckler: equip_buckler || null,
-			equip_helm: equip_helm || null,
-			equip_gloves: equip_gloves || null,
-			equip_amulet: equip_amulet || null,
-			equip_ring: equip_ring || null,
-			//character_pref_give_pm: character_pref_give_pm || null,
-			//character_pref_seller_pm: character_pref_seller_pm || null,
-			character_double_ko: 0,
-			character_victories_pvp: 0,
-			character_defeats_pvp: 0,
-			character_flees_pvp: 0,
-			character_fp: 0
-		});
 	};
 
 	Character.getCharacterField = function(uid, field, callback) {
@@ -120,6 +109,16 @@ var Character = {};
 
 	Character.getCharacterFields = function(uid, fields, callback) {
 		db.getObjectFields('of:character:' + uid, fields, callback);
+	};
+
+	Character.getCharacterData = function(uid, callback) {
+		db.getObject('of:character:' + uid, function(err, data) {
+			if(err) {
+				return callback(err);
+			}
+
+			callback(err, data);
+		});
 	};
 
 
