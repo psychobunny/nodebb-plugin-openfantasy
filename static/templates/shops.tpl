@@ -46,3 +46,12 @@
 </table>
 
 <!-- ENDIF view_store_list -->
+
+
+
+<script type="text/javascript">
+	$('document').ready(function() {
+		$('.rpg-header li').removeClass('active');
+		$('.rpg-header .shops').addClass('active');
+	});
+</script>

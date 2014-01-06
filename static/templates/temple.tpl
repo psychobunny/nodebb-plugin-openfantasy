@@ -6,3 +6,11 @@
 	<label for="resurrect">[[of:temple_resurrect_cost]] : {resurrect_cost} {l_points}</label>
 	<button class="form-control btn-primary resurrect">[[of:temple_resurrect]]</button>
 </div>
+
+
+<script type="text/javascript">
+	$('document').ready(function() {
+		$('.rpg-header li').removeClass('active');
+		$('.rpg-header .temple').addClass('active');
+	});
+</script>

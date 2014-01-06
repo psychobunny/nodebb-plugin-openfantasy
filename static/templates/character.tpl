@@ -279,3 +279,11 @@ $('document').ready(function() {
 
 </script>
 <!-- ENDIF character -->
+
+
+<script type="text/javascript">
+	$('document').ready(function() {
+		$('.rpg-header li').removeClass('active');
+		$('.rpg-header .character').addClass('active');
+	});
+</script>
