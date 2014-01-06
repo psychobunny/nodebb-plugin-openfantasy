@@ -190,8 +190,9 @@ var Temple = {};
 		var content = templates.prepare(OF.templates['temple.tpl']);
 
 		if (req.user && req.user.uid) {
-			Character.getCharacterFields(req.user.uid, ["character_hp", "character_hp_max", "character_mp", "character_mp_max", "character_level"], function(err, data) {
-				if (data) {
+			Character.getCharacterFields(req.user.uid, ["character_id", "character_hp", "character_hp_max", "character_mp", "character_mp_max", "character_level"], function(err, data) {
+				
+				if (data.character_id) {
 					data.heal_cost = Math.ceil(OF.data.config.temple_heal_cost * data.character_level);
 					data.resurrect_cost = Math.ceil(OF.data.config.temple_resurrect_cost * data.character_level);
 
@@ -202,7 +203,7 @@ var Temple = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -264,7 +265,7 @@ var Shops = {};
 					}
 					
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -290,7 +291,7 @@ var Battle = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -315,7 +316,7 @@ var Equipment = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -340,7 +341,7 @@ var Inventory = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -365,7 +366,7 @@ var Skills = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -390,7 +391,7 @@ var Courthouse = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -415,7 +416,7 @@ var Vault = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -440,7 +441,7 @@ var StockMarket = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -465,7 +466,7 @@ var Forge = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -490,7 +491,7 @@ var Mining = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -515,7 +516,7 @@ var Enchant = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -540,7 +541,7 @@ var Warehouse = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -565,7 +566,7 @@ var Training = {};
 						callback({content: content});
 					});
 				} else {
-					return res.redirect('/character');
+					return res.redirect('/rpg/character');
 				}
 			});
 		}
@@ -617,7 +618,7 @@ OF.init = function() {
 OF.addNavigation = function(custom_header, callback) {
 	custom_header.navigation.push({
 			"class": "",
-			"route": "/character",
+			"route": "/rpg/character",
 			"text": "RPG"
 		});
 
@@ -651,7 +652,16 @@ OF.addRoute = function(custom_routes, callback) {
 		custom_routes.routes = custom_routes.routes.concat(
 			[
 				{
-					"route": "/character",
+					"route": "/rpg",
+					"method": "get",
+					"options": function(req, res, callback) {
+						res.redirect("/rpg/character");
+					}
+				}
+			],
+			[
+				{
+					"route": "/rpg/character",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Character.render(req, res, function(data) {
@@ -662,7 +672,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/temple",
+					"route": "/rpg/temple",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Temple.render(req, res, function(data) {
@@ -673,7 +683,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/shops/:mode?/:mid?",
+					"route": "/rpg/shops/:mode?/:mid?",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Shops.render(req, res, function(data) {
@@ -684,7 +694,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/battle",
+					"route": "/rpg/battle",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Battle.render(req, res, function(data) {
@@ -695,7 +705,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/equipment",
+					"route": "/rpg/equipment",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Equipment.render(req, res, function(data) {
@@ -706,7 +716,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/inventory",
+					"route": "/rpg/inventory",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Inventory.render(req, res, function(data) {
@@ -717,7 +727,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/skills",
+					"route": "/rpg/skills",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Skills.render(req, res, function(data) {
@@ -728,7 +738,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/courthouse",
+					"route": "/rpg/courthouse",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Courthouse.render(req, res, function(data) {
@@ -739,7 +749,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/vault",
+					"route": "/rpg/vault",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Vault.render(req, res, function(data) {
@@ -750,7 +760,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/stock",
+					"route": "/rpg/stock",
 					"method": "get",
 					"options": function(req, res, callback) {
 						StockMarket.render(req, res, function(data) {
@@ -761,7 +771,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/forge",
+					"route": "/rpg/forge",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Forge.render(req, res, function(data) {
@@ -772,7 +782,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/mining",
+					"route": "/rpg/mining",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Mining.render(req, res, function(data) {
@@ -783,7 +793,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/enchant",
+					"route": "/rpg/enchant",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Enchant.render(req, res, function(data) {
@@ -794,7 +804,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/warehouse",
+					"route": "/rpg/warehouse",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Warehouse.render(req, res, function(data) {
@@ -805,7 +815,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/training",
+					"route": "/rpg/training",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Training.render(req, res, function(data) {

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default" role="navigation">
 	<ul class="nav navbar-nav">
 		<li class="active">
-			<a href="/shops">[[of:forum_shops_go]]</a>
+			<a href="/rpg/shops">[[of:forum_shops_go]]</a>
 		</li>
 		<li>
 			<a href="#">[[of:users_shops_list]]</a>
