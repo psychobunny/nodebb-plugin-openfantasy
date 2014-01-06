@@ -76,11 +76,11 @@ $('document').ready(function() {
 			'character_element': $('#character_element').val(),
 			'character_race': $('#character_race').val(),
 			'character_class': $('#character_class').val(),
-			'character_name': $('#character_name').val(),
+			'character_name': $('#r_name').val(),
 			'character_desc': $('#character_desc').val(),
 			'_csrf': '{_csrf}'
 		},function(data) {
-			console.log(data);
+			console.log(data); // put ajaxify here
 		});
 	});
 });
@@ -96,36 +96,36 @@ $('document').ready(function() {
 			<table class="table" cellspacing="2" cellpadding="0" border="2" align="center" width="100%">
 				<tr>
 					<td class="row1" align="center" width="60%" colspan="2"><b><span class="gen">{character_name}</span></b>
-					<br /><span class="gen"><b>{l_level}: {level}; {char_year}</b></span></td>
+					<br /><span class="gen"><b>[[of:character_level]]: {character_level}; [[of:character_age_old, {character_age}]]</b></span></td>
 				</tr>
-				<tr>
+				<!--<tr>
 					<td class="row2" align="center" colspan="2">{avatar_img}</td>
+				</tr>-->
+				<tr>
+					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_class]]:</td>
+					<td class="row2" align="center"><span class="gensmall"><img src="{class_img}" alt="[[{character_class}]]"><br />[[{character_class}]]</span></td>
 				</tr>
 				<tr>
-					<td class="row1" align="center" width="40%"><span class="gen">{l_class}</td>
-					<td class="row2" align="center"><span class="gensmall"><img src="plugins/nodebb-plugin-openfantasy/images/classes/{class_img}" alt="[[{character_class}]]"><br />[[{character_class}]]</span></td>
+					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_race]]:</td>
+					<td class="row2" align="center"><span class="gensmall"><img src="{race_img}" alt="[[{character_race}]]"><br />[[{character_race}]]</span></td>
 				</tr>
 				<tr>
-					<td class="row1" align="center" width="40%"><span class="gen">{l_race}:</td>
-					<td class="row2" align="center"><span class="gensmall"><img src="plugins/nodebb-plugin-openfantasy/images/races/{race_img}" alt="[[{character_race}]]"><br />[[{character_race}]]</span></td>
+					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_element]]:</td>
+					<td class="row2" align="center"><span class="gensmall"><img src="{element_img}" alt="[[{character_element}]]"><br />[[{character_element}]]</span></td>
 				</tr>
 				<tr>
-					<td class="row1" align="center" width="40%"><span class="gen">{l_element}:</td>
-					<td class="row2" align="center"><span class="gensmall"><img src="plugins/nodebb-plugin-openfantasy/images/elements/{element_img}" alt="[[{character_element}]]"><br />[[{character_element}]]</span></td>
-				</tr>
-				<tr>
-					<td class="row1" align="center" width="40%"><span class="gen">{l_alignment}:</td>
-					<td class="row2" align="center"><span class="gensmall"><img src="plugins/nodebb-plugin-openfantasy/images/alignments/{alignment_img}" alt="[[{character_alignment}]]"><br />[[{character_alignment}]]</span></td>
+					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_alignment]]:</td>
+					<td class="row2" align="center"><span class="gensmall"><img src="{alignment_img}" alt="[[{character_alignment}]]"><br />[[{character_alignment}]]</span></td>
 				</tr>
 			</table>
 			<!-- begin owner -->
 			<table class="table" cellspacing="1" cellpadding="1" border="1" align="center" width="100%">
 				<tr>
-					<td align="center" class="row2" ><input type="submit" name="bio_edit" value="{l_edit_character}" class="liteoption" /></td>
+					<td align="center" class="row2" ><button class="form-control bio_edit">[[of:character_edit]]</button></td>
 				</tr>
 				<!-- begin delete -->
 				<tr>
-					<td align="center" class="row2" ><input type="submit" name="delete" value="{l_delete_character}" class="liteoption" /></td>
+					<td align="center" class="row2" ><button class="form-control btn-danger delete">[[of:character_delete]]</button></td>
 				</tr>
 				<!-- end delete -->
 			</table>
@@ -138,7 +138,7 @@ $('document').ready(function() {
 					<td align="center" colspan="6" class="row2">
 						<table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 						<tr>
-							<td align="center"><span class="gensmall">{l_hp} {character_hp} / {character_hp_max}</td>
+							<td align="center"><span class="gensmall">[[of:character_health]] {character_hp} / {character_hp_max}</td>
 						</tr>
 						<tr>
 							<td align="center">&nbsp;<img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_red_middle.gif" width="{hp_percent_width}" height="13" border="0" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{hp_percent_empty}" height="13" border="0" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_red_end.gif" width="6" height="13" /></td>
@@ -150,7 +150,7 @@ $('document').ready(function() {
 					<td align="center" colspan="6" class="row2">
 						<table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 						<tr>
-							<td align="center"><span class="gensmall">{l_mp} {character_mp} / {character_mp_max}</td>
+							<td align="center"><span class="gensmall">[[of:character_magic]] {character_mp} / {character_mp_max}</td>
 						</tr>
 						<tr>
 							<td align="center">&nbsp;<img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_middle.gif" width="{mp_percent_width}" height="13" border="0" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{mp_percent_empty}" height="13" border="0" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
@@ -162,7 +162,7 @@ $('document').ready(function() {
 					<td align="center" colspan="6" class="row2">
 						<table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 						<tr>
-							<td align="center"><span class="gensmall">{l_weight}: {weight} / {weight_max}</td>
+							<td align="center"><span class="gensmall">[[of:character_weight]]: {character_weight} / {character_weight_max}</td>
 						</tr>
 						<tr>
 							<td align="center">&nbsp;<img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{weight_percent_width}" height="13" border="0" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{weight_percent_empty}" height="13" border="0" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
@@ -174,7 +174,7 @@ $('document').ready(function() {
 					<td align="center" colspan="6" class="row2">
 						<table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 						<tr>
-							<td align="center"><span class="gensmall">{l_experience} {exp} / {exp_max}</td>
+							<td align="center"><span class="gensmall">[[of:character_experience]]: {character_xp} / {character_xp_max}</td>
 						</tr>
 						<tr>
 							<td align="center">&nbsp;<img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_green_begin.gif" width="6" height="13" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_green_middle.gif" width="{exp_percent_width}" height="13" border="0" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{exp_percent_empty}" height="13" border="0" /><img src="plugins/nodebb-plugin-openfantasy/images/misc/bar_green_end.gif" width="6" height="13" /></td>
@@ -186,49 +186,50 @@ $('document').ready(function() {
                     <td align="center" class="row1" colspan="6">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/au.gif" alt="{l_points}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_points}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{points}</span></td>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/dex.gif" alt="{l_agility}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_agility}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{agility}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/au.gif" alt="[[of:character_points]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_points]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_points}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/dex.gif" alt="[[of:character_dexterity]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_dexterity]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_dexterity}</span></td>
                 </tr>
                 <tr>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/sp.gif" alt="{l_sp}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_sp}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{sp}</span></td>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/const.gif" alt="{l_constit}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_constit}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{constit}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/sp.gif" alt="[[of:character_sp]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_sp]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_sp}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/const.gif" alt="[[of:character_constitution]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_constitution]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_constitution}</span></td>
                 </tr>
                 <tr>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/sp.gif" alt="{l_fp}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_fp}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{fp}</span></td>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/int.gif" alt="{l_int}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_int}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{int}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/sp.gif" alt="[[of:character_fp]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_fp]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_fp}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/int.gif" alt="[[of:character_intelligence]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_intelligence]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_intelligence}</span></td>
                 </tr>
                 <tr>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/ac.gif" alt="{l_ac}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_ac}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{ac}</span></td>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/look.gif" alt="{l_wis}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_wis}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{wis}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/ac.gif" alt="[[of:character_ac]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_ac]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_ac}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/look.gif" alt="[[of:character_wisdom]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_wisdom]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_wisdom}</span></td>
                 </tr>
                 <tr>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/str.gif" alt="{l_power}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_power}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{power}</span></td>
-                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/cha.gif" alt="{l_cha}"></td>
-                    <td align="center" class="row2" width="35%"><span class="gensmall">{l_cha}</span></td>
-                    <td align="center" class="row2" width="10%"><span class="gensmall">{cha}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/str.gif" alt="[[of:character_might]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_might]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_might}</span></td>
+                    <td align="center" class="row2" width="5%"><img src="plugins/nodebb-plugin-openfantasy/images/misc/cha.gif" alt="[[of:character_charisma]]"></td>
+                    <td align="center" class="row2" width="35%"><span class="gensmall">[[of:character_charisma]]</span></td>
+                    <td align="center" class="row2" width="10%"><span class="gensmall">{character_charisma}</span></td>
                 </tr>
 			</table>
 		</span></td>
 	</tr>
 </table>
+<!-- after I implement battle.
 <br clear="all" />
 <table class="table" cellspacing="1" cellpadding="1" border="1" align="center" width="90%">
 	<tr>
@@ -256,10 +257,25 @@ $('document').ready(function() {
 	</tr>
 	<tr>
 		<td align="center" class="catbottom" colspan="3">
-			<input type="submit" name="battle_monsters" value="{l_battle_see_monsters}" class="liteoption" />
-			&nbsp;&nbsp;
-			<input type="submit" name="battle_players" value="{l_battle_see_players}" class="liteoption" />
+			<input class="form-control" type="submit" name="battle_monsters" value="{l_battle_see_monsters}" />
+			<input class="form-control" type="submit" name="battle_players" value="{l_battle_see_players}" />
 		</td>
 	</tr>
 </table>
+-->
+
+<script type="text/javascript">
+$('document').ready(function() {
+	$('button.delete').on('click', function() {
+		bootbox.confirm('<strong>[[of:character_delete_confirm]]</strong>', function(confirm) {
+			if (confirm) {
+				$.post('./api/openfantasy/character/delete', {'_csrf': '{_csrf}'},function(data) {
+					console.log(data); // put ajaxify here
+				});
+			}
+		});
+	})
+});
+
+</script>
 <!-- ENDIF character -->

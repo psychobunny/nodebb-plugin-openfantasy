@@ -17,9 +17,9 @@ var Character = {};
 
 			Character.getCharacterField(req.user.uid, 'character_id', function(data) {
 				if (data === null) {
-					var raceData = OF.data.races[req.body.character_race],
-						elementData = OF.data.elements[req.body.character_element],
-						classData = OF.data.classes[req.body.character_class];
+					var raceData = OF.data.races[req.body.character_race - 1],
+						elementData = OF.data.elements[req.body.character_element - 1],
+						classData = OF.data.classes[req.body.character_class - 1];
 
 					var character_might = Math.floor(Math.random() * 10) + 10 + (raceData['race_might_bonus'] - raceData['race_might_penalty']),
 						character_dexterity = Math.floor(Math.random() * 10) + 10 + (raceData['race_dexterity_bonus'] - raceData['race_dexterity_penalty']),
@@ -57,7 +57,7 @@ var Character = {};
 						character_mp_max: character_mp_max,
 						character_ac: character_ac,
 						character_xp: 0,
-						character_level: 0,
+						character_level: 1,
 						character_might: character_might,
 						character_dexterity: character_dexterity,
 						character_constitution: character_constitution,
@@ -121,6 +121,13 @@ var Character = {};
 		});
 	};
 
+	Character.delete = function(req, res, callback) {
+		if (req.user && req.user.uid) {
+			db.delete('of:character:' + req.user.uid, function(err) {
+				callback({status: err === null, error: err});
+			});
+		}
+	};
 
 	Character.render = function(req, res, callback) {
 		var content = templates.prepare(OF.templates['character.tpl']);
@@ -129,10 +136,26 @@ var Character = {};
 			Character.getCharacterData(req.user.uid, function(err, data) {
 				if (data) {
 					data.character = true;
-					data.character_class = OF.data.classes[data.character_class].class_name;
-					data.character_alignment = OF.data.alignments[data.character_alignment].alignment_name;
-					data.character_element = OF.data.elements[data.character_element].element_name;
-					data.character_race = OF.data.races[data.character_race].race_name;
+
+					var classData = OF.data.classes[data.character_class-1],
+						alignmentData = OF.data.alignments[data.character_alignment-1],
+						elementData = OF.data.elements[data.character_element-1],
+						raceData = OF.data.races[data.character_race-1];
+
+					data.character_class = classData.class_name;
+					data.class_img = classData.class_img;
+
+					data.character_alignment = alignmentData.alignment_name;
+					data.alignment_img = alignmentData.alignment_img;
+
+					data.character_element = elementData.element_name;
+					data.element_img = elementData.element_img;
+
+					data.character_race = raceData.race_name;
+					data.race_img = raceData.race_img;
+
+					data.character_age = parseInt(OF.data.config.character_age, 10) + Math.ceil((Date.now() - data.character_birth) / 7862400);
+					data._csrf = res.locals.csrf_token;
 
 					translator.translate(content.parse(data), function(content) {
 						callback({content: content});
@@ -277,6 +300,11 @@ OF.addRoute = function(custom_routes, callback) {
 					"method": "post",
 					"route": "/openfantasy/character/create",
 					"callback": Character.create
+				},
+				{
+					"method": "post",
+					"route": "/openfantasy/character/delete",
+					"callback": Character.delete
 				}
 			]
 		);
