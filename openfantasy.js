@@ -276,6 +276,307 @@ var Shops = {};
 }());
 
 
+var Battle = {};
+(function() {
+	Battle.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['battle.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Equipment = {};
+(function() {
+	Equipment.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['equipment.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Inventory = {};
+(function() {
+	Inventory.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['inventory.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Skills = {};
+(function() {
+	Skills.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['skills.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Courthouse = {};
+(function() {
+	Courthouse.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['courthouse.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Vault = {};
+(function() {
+	Vault.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['vault.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var StockMarket = {};
+(function() {
+	StockMarket.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['stock.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Forge = {};
+(function() {
+	Forge.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['forge.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Mining = {};
+(function() {
+	Mining.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['mining.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Enchant = {};
+(function() {
+	Enchant.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['enchant.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Warehouse = {};
+(function() {
+	Warehouse.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['warehouse.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+var Training = {};
+(function() {
+	Training.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['training.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					content = content.parse({});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+
 
 var OF = {
 	templates: {},
@@ -324,7 +625,7 @@ OF.addNavigation = function(custom_header, callback) {
 };
 
 OF.addRoute = function(custom_routes, callback) {
-	var templatesToLoad = ["shops.tpl", "temple.tpl", "character.tpl", "header.tpl", "footer.tpl"];
+	var templatesToLoad = ["shops.tpl", "temple.tpl", "character.tpl", "header.tpl", "footer.tpl", "battle.tpl", "equipment.tpl", "inventory.tpl", "skills.tpl", "courthouse.tpl", "vault.tpl", "stock.tpl", "forge.tpl", "mining.tpl", "enchant.tpl", "warehouse.tpl", "training.tpl"];
 
 	function loadTemplate(template, next) {
 		fs.readFile(path.resolve(__dirname, './static/templates/' + template), function (err, data) {
@@ -376,6 +677,138 @@ OF.addRoute = function(custom_routes, callback) {
 					"method": "get",
 					"options": function(req, res, callback) {
 						Shops.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/battle",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Battle.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/equipment",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Equipment.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/inventory",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Inventory.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/skills",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Skills.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/courthouse",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Courthouse.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/vault",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Vault.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/stock",
+					"method": "get",
+					"options": function(req, res, callback) {
+						StockMarket.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/forge",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Forge.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/mining",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Mining.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/enchant",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Enchant.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/warehouse",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Warehouse.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/training",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Training.render(req, res, function(data) {
 							callback(buildHeader(data));
 						});
 					}
