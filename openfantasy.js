@@ -162,13 +162,13 @@ var Character = {};
 					});
 				} else {
 					content = content.parse({
-							"character": false,
-							"races": OF.data.races,
-							"classes": OF.data.classes,
-							"elements": OF.data.elements,
-							"alignments": OF.data.alignments,
-							"_csrf": res.locals.csrf_token
-						});
+						"character": false,
+						"races": OF.data.races,
+						"classes": OF.data.classes,
+						"elements": OF.data.elements,
+						"alignments": OF.data.alignments,
+						"_csrf": res.locals.csrf_token
+					});
 
 					translator.translate(content, function(content) {
 						callback({content: content});
@@ -187,15 +187,20 @@ var Character = {};
 var Temple = {};
 (function() {
 	Temple.render = function(req, res, callback) {
-		var content = templates.prepare(OF.templates['temple.tpl']).parse({});
+		var content = templates.prepare(OF.templates['temple.tpl']);
 
 		if (req.user && req.user.uid) {
 			Character.getCharacterFields(req.user.uid, ["character_hp", "character_hp_max", "character_mp", "character_mp_max", "character_level"], function(err, data) {
-				console.log(data, req.user.uid);
 				if (data) {
-					callback({
-						content: content
-					});	
+					data.heal_cost = Math.ceil(OF.data.config.temple_heal_cost * data.character_level);
+					data.resurrect_cost = Math.ceil(OF.data.config.temple_resurrect_cost * data.character_level);
+
+					content = content.parse(data);
+
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
 				} else {
 					return res.redirect('/character');
 				}
@@ -277,6 +282,10 @@ OF.addRoute = function(custom_routes, callback) {
 		if (err) {
 			throw new Error("Error loading templates: " + err);
 		}
+
+		translator.translate(OF.templates['header.tpl'], function(translated) {
+			OF.templates['header.tpl'] = translated;
+		});
 		
 		custom_routes.routes = custom_routes.routes.concat(
 			[
