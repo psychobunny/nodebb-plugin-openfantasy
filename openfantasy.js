@@ -216,31 +216,53 @@ var Temple = {};
 var Shops = {};
 (function() {
 	Shops.render = function(req, res, callback) {
-		var content = templates.prepare(OF.templates['shops.tpl']);
-
+		var content = templates.prepare(OF.templates['shops.tpl']),
+			mode = req.params.mode,
+			mid = req.params.mid;
+		
 		if (req.user && req.user.uid) {
 			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
 				if (data) {
-					store_data = OF.data.stores;
+					if (!mode) {
+						store_data = OF.data.stores;
 
-					for (var store in store_data) {
-						var store = store_data[store];
+						for (var store in store_data) {
+							var store = store_data[store];
 
-						if (store.sale && store.store_status) {
-							store.store_status = "[[of:store_sale]]";
-						} else {
-							store.store_status = store.store_status ? "[[of:store_open]]" : "[[of:store_closed]]";
+							if (store.sale && store.store_status) {
+								store.store_status = "[[of:store_sale]]";
+							} else {
+								store.store_status = store.store_status ? "[[of:store_open]]" : "[[of:store_closed]]";
+							}
 						}
+
+						content = content.parse({
+							view_store_list: true,
+							store: store_data
+						});
+
+						translator.translate(content, function(content) {
+							callback({content: content});
+						});
+					} else if (mode === 'store') {
+						var shops_items = OF.data.shops_items, items = [];
+
+						for (var i in shops_items) {
+							var item = shops_items[i];
+							if (item.item_store_id === mid) {
+								items.push(item);
+							}
+						}
+						content = content.parse({
+							view_store: true,
+							items: items
+						});
+
+						translator.translate(content, function(content) {
+							callback({content: content});
+						});
 					}
-
-					content = content.parse({
-						view_store_list: true,
-						store: store_data
-					});
-
-					translator.translate(content, function(content) {
-						callback({content: content});
-					});
+					
 				} else {
 					return res.redirect('/character');
 				}
@@ -350,7 +372,7 @@ OF.addRoute = function(custom_routes, callback) {
 			],
 			[
 				{
-					"route": "/shops",
+					"route": "/shops/:mode?/:mid?",
 					"method": "get",
 					"options": function(req, res, callback) {
 						Shops.render(req, res, function(data) {
