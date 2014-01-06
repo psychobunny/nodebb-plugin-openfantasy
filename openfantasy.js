@@ -213,6 +213,48 @@ var Temple = {};
 	}
 }());
 
+var Shops = {};
+(function() {
+	Shops.render = function(req, res, callback) {
+		var content = templates.prepare(OF.templates['shops.tpl']);
+
+		if (req.user && req.user.uid) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
+				if (data) {
+					store_data = OF.data.stores;
+
+					for (var store in store_data) {
+						var store = store_data[store];
+
+						if (store.sale && store.store_status) {
+							store.store_status = "[[of:store_sale]]";
+						} else {
+							store.store_status = store.store_status ? "[[of:store_open]]" : "[[of:store_closed]]";
+						}
+					}
+
+					content = content.parse({
+						view_store_list: true,
+						store: store_data
+					});
+
+					translator.translate(content, function(content) {
+						callback({content: content});
+					});
+				} else {
+					return res.redirect('/character');
+				}
+			});
+		}
+		else
+		{
+			return res.redirect('/login');
+		}
+	}
+}());
+
+
+
 var OF = {
 	templates: {},
 	data: data
@@ -249,10 +291,6 @@ OF.init = function() {
 	OF.data = normalizeImagePaths(OF.data);
 }
 
-OF.prepareTemplate = function(template) {
-
-};
-
 OF.addNavigation = function(custom_header, callback) {
 	custom_header.navigation.push({
 			"class": "",
@@ -264,7 +302,7 @@ OF.addNavigation = function(custom_header, callback) {
 };
 
 OF.addRoute = function(custom_routes, callback) {
-	var templatesToLoad = ["temple.tpl", "character.tpl", "header.tpl", "footer.tpl"];
+	var templatesToLoad = ["shops.tpl", "temple.tpl", "character.tpl", "header.tpl", "footer.tpl"];
 
 	function loadTemplate(template, next) {
 		fs.readFile(path.resolve(__dirname, './static/templates/' + template), function (err, data) {
@@ -305,6 +343,17 @@ OF.addRoute = function(custom_routes, callback) {
 					"method": "get",
 					"options": function(req, res, callback) {
 						Temple.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
+				}
+			],
+			[
+				{
+					"route": "/shops",
+					"method": "get",
+					"options": function(req, res, callback) {
+						Shops.render(req, res, function(data) {
 							callback(buildHeader(data));
 						});
 					}
