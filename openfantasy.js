@@ -126,14 +126,20 @@ var Character = {};
 		var content = templates.prepare(OF.templates['character.tpl']);
 
 		if (req.user && req.user.uid) {
-			Character.getCharacterFields(req.user.uid, ["character_hp", "character_hp_max", "character_mp", "character_mp_max", "character_level"], function(data) {
+			Character.getCharacterData(req.user.uid, function(err, data) {
 				if (data) {
-					callback({
-						content: content.parse(data)
-					})
+					data.character = true;
+					data.character_class = OF.data.classes[data.character_class].class_name;
+					data.character_alignment = OF.data.alignments[data.character_alignment].alignment_name;
+					data.character_element = OF.data.elements[data.character_element].element_name;
+					data.character_race = OF.data.races[data.character_race].race_name;
+
+					translator.translate(content.parse(data), function(content) {
+						callback({content: content});
+					});
 				} else {
 					content = content.parse({
-							"create_character": true,
+							"character": false,
 							"races": OF.data.races,
 							"classes": OF.data.classes,
 							"elements": OF.data.elements,
