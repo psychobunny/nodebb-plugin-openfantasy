@@ -80,7 +80,7 @@ $('document').ready(function() {
 			'character_desc': $('#character_desc').val(),
 			'_csrf': '{_csrf}'
 		},function(data) {
-			console.log(data); // put ajaxify here
+			ajaxify.go('character');
 		});
 	});
 });
@@ -270,7 +270,7 @@ $('document').ready(function() {
 		bootbox.confirm('<strong>[[of:character_delete_confirm]]</strong>', function(confirm) {
 			if (confirm) {
 				$.post('./api/openfantasy/character/delete', {'_csrf': '{_csrf}'},function(data) {
-					console.log(data); // put ajaxify here
+					ajaxify.go('character');
 				});
 			}
 		});

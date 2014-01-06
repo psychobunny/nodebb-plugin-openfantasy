@@ -15,7 +15,7 @@ var Character = {};
 			var uid = req.user.uid;
 
 
-			Character.getCharacterField(req.user.uid, 'character_id', function(data) {
+			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
 				if (data === null) {
 					var raceData = OF.data.races[req.body.character_race - 1],
 						elementData = OF.data.elements[req.body.character_element - 1],
@@ -190,7 +190,8 @@ var Temple = {};
 		var content = templates.prepare(OF.templates['temple.tpl']).parse({});
 
 		if (req.user && req.user.uid) {
-			Character.getCharacterFields(req.user.uid, ["character_hp", "character_hp_max", "character_mp", "character_mp_max", "character_level"], function(data) {
+			Character.getCharacterFields(req.user.uid, ["character_hp", "character_hp_max", "character_mp", "character_mp_max", "character_level"], function(err, data) {
+				console.log(data, req.user.uid);
 				if (data) {
 					callback({
 						content: content
@@ -243,33 +244,33 @@ OF.init = function() {
 	OF.data = normalizeImagePaths(OF.data);
 }
 
+OF.prepareTemplate = function(template) {
+
+};
+
 OF.addNavigation = function(custom_header, callback) {
-	custom_header.navigation = custom_header.navigation.concat(
-		[
-			{
-				"class": "",
-				"route": "/character",
-				"text": "Character"
-			},
-			{
-				"class": "",
-				"route": "/temple",
-				"text": "Temple"
-			}
-		]
-	);
+	custom_header.navigation.push({
+			"class": "",
+			"route": "/character",
+			"text": "RPG"
+		});
 
 	return custom_header;
 };
 
 OF.addRoute = function(custom_routes, callback) {
-	var templatesToLoad = ["temple.tpl", "character.tpl"];
+	var templatesToLoad = ["temple.tpl", "character.tpl", "header.tpl", "footer.tpl"];
 
 	function loadTemplate(template, next) {
 		fs.readFile(path.resolve(__dirname, './static/templates/' + template), function (err, data) {
 			OF.templates[template] = data.toString();
 			next(err);
 		});
+	}
+
+	function buildHeader(data) {
+		data.content = OF.templates["header.tpl"] + data.content + OF.templates["footer.tpl"];
+		return data;
 	}
 
 	async.each(templatesToLoad, loadTemplate, function(err) {
@@ -282,14 +283,22 @@ OF.addRoute = function(custom_routes, callback) {
 				{
 					"route": "/character",
 					"method": "get",
-					"options": Character.render
+					"options": function(req, res, callback) {
+						Character.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
 				}
 			],
 			[
 				{
 					"route": "/temple",
 					"method": "get",
-					"options": Temple.render
+					"options": function(req, res, callback) {
+						Temple.render(req, res, function(data) {
+							callback(buildHeader(data));
+						});
+					}
 				}
 			]
 		);
