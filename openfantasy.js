@@ -323,6 +323,109 @@ var Battle = {};
 	}
 }());
 
+var Monsters = {};
+(function() {
+	Monsters.init = function() {
+		var monsters = OF.data.monsters,
+			dictionary = {};
+
+		for (var m in monsters) {
+			dictionary[monsters[m].monster_id] = monsters[m];
+		}
+
+		OF.data.monsters = dictionary;
+	};
+
+	Monsters.getMonstersByLevel = function(character_level, callback) {
+		var monsters = OF.data.monsters,
+			eligible = [];
+
+		for (var m in monsters) {
+			if (monsters[m].monster_level <= character_level) {
+				eligible.push(monsters[m]);
+			}
+		}
+
+		return eligible;
+	};
+
+	Monsters.getMonsterByID = function(monster_id) {
+		return OF.data.monsters[monster_id];
+	};
+}());
+
+var Alignments = {};
+(function() {
+	Alignments.init = function() {
+		var alignments = OF.data.alignments,
+			dictionary = {};
+
+		for (var a in alignments) {
+			dictionary[alignments[a].alignment_id] = alignments[a];
+		}
+
+		OF.data.alignments = dictionary;
+	};
+
+	Alignments.getAlignmentByID = function(alignment_id) {
+		return OF.data.alignments[alignment_id];
+	};
+}());
+
+var Classes = {};
+(function() {
+	Classes.init = function() {
+		var classes = OF.data.classes,
+			dictionary = {};
+
+		for (var c in classes) {
+			dictionary[classes[c].class_id] = classes[c];
+		}
+
+		OF.data.classes = dictionary;
+	};
+
+	Classes.getClassByID = function(class_id) {
+		return OF.data.classes[class_id];
+	};
+}());
+
+var Elements = {};
+(function() {
+	Elements.init = function() {
+		var elements = OF.data.elements,
+			dictionary = {};
+
+		for (var a in elements) {
+			dictionary[elements[a].element_id] = elements[a];
+		}
+
+		OF.data.elements = dictionary;
+	};
+
+	Elements.getElementByID = function(element_id) {
+		return OF.data.elements[element_id];
+	};
+}());
+
+var Items = {};
+(function() {
+	Items.init = function() {
+		var items = OF.data.items,
+			dictionary = {};
+
+		for (var i in items) {
+			dictionary[items[i].item_id] = items[i];
+		}
+
+		OF.data.items = dictionary;
+	};
+
+	Items.getItemByID = function(item_id) {
+		return OF.data.items[item_id];
+	};
+}());
+
 var Equipment = {};
 (function() {
 	Equipment.render = function(req, res, callback) {
