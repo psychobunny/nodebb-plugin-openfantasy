@@ -132,6 +132,22 @@ var Character = {};
 		db.getObjectFields('of:character:' + uid, fields, callback);
 	};
 
+	Character.setCharacterField = function(uid, field, value, callback) {
+		db.setObjectField('of:character:' + uid, field, value, callback);
+	};
+
+	Character.setCharacterFields = function(uid, data, callback) {
+		db.setObject('of:character:' + uid, data, callback);
+	};
+
+	Character.incrementCharacterFieldBy = function(uid, field, value, callback) {
+		db.incrObjectFieldBy('of:character:' + uid, field, value, callback);
+	};
+
+	Character.decrementCharacterFieldBy = function(uid, field, value, callback) {
+		db.incrObjectFieldBy('of:character:' + uid, field, -value, callback);
+	};
+
 	Character.getCharacterData = function(uid, callback) {
 		db.getObject('of:character:' + uid, function(err, data) {
 			if(err) {
@@ -320,6 +336,62 @@ var Battle = {};
 		{
 			return res.redirect('/login');
 		}
+	};
+	
+	Battle.getBattleField = function(battle_id, field, callback) {
+		db.getObjectField('of:battle:' + battle_id, field, callback);
+	};
+
+	Battle.getBattleFields = function(battle_id, fields, callback) {
+		db.getObjectFields('of:battle:' + battle_id, fields, callback);
+	};
+
+	Battle.setBattleField = function(battle_id, field, value, callback) {
+		db.setObjectField('of:battle:' + battle_id, field, value, callback);
+	};
+
+	Battle.setBattleFields = function(battle_id, data, callback) {
+		db.setObject('of:battle:' + battle_id, data, callback);
+	};
+
+	Battle.incrementBattleFieldBy = function(battle_id, field, value, callback) {
+		db.incrObjectFieldBy('of:battle:' + battle_id, field, value, callback);
+	};
+
+	Battle.decrementBattleFieldBy = function(battle_id, field, value, callback) {
+		db.incrObjectFieldBy('of:battle:' + battle_id, field, -value, callback);
+	};
+
+	Battle.getCurrentBattleData = function(uid, callback) {
+
+	};
+
+	function createBattle(uid, callback) {
+
+	}
+
+	function incrementTurn(uid, callback) {
+
+	}
+
+	function flee(uid, callback) {
+
+	}
+
+	function win(uid, challenger_id, callback) {
+
+	}
+
+	function lose(uid, challenger_id, callback) {
+
+	}
+
+	function attack(uid, item_id, callback) {
+
+	}
+
+	function opponent_turn(uid) {
+
 	}
 }());
 
