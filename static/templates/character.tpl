@@ -6,7 +6,7 @@
 			<form role="form">
 				<div class="form-group">
 					<label for="character_name">Character Name</label>
-					<input type="email" class="form-control" id="character_name" placeholder="Enter your name...">
+					<input type="text" class="form-control" id="character_name" placeholder="Enter your name...">
 				</div>
 				<div class="form-group">
 					<label for="character_race">Character Race</label>
@@ -76,7 +76,7 @@ $('document').ready(function() {
 			'character_element': $('#character_element').val(),
 			'character_race': $('#character_race').val(),
 			'character_class': $('#character_class').val(),
-			'character_name': $('#r_name').val(),
+			'character_name': $('#character_name').val(),
 			'character_desc': $('#character_desc').val(),
 			'_csrf': '{_csrf}'
 		},function(data) {

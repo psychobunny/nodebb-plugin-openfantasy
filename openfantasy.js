@@ -100,7 +100,6 @@ var Character = {};
 		} else {
 			return res.redirect('/login');
 		}
-
 	};
 
 	Character.getCharacterField = function(uid, field, callback) {
@@ -590,7 +589,8 @@ var constants = Object.freeze({
 
 OF.init = function() {
 	function setupTranslations() {
-		var lang = translator.getLanguage();
+		//var lang = translator.getLanguage(); // this line started crashing :/
+		var lang = 'en';
 		translator.addTranslation('of', require('./static/language/' + lang + '/openfantasy.json'));
 	}
 
