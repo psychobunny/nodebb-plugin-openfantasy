@@ -10,6 +10,8 @@ var	fs = require('fs'),
 
 var Character = {};
 (function() {
+	var user = module.parent.require('../src/user.js');
+
 	Character.create = function(req, res, callback) {
 		if (req.user && req.user.uid) {
 			var uid = req.user.uid;
@@ -100,6 +102,26 @@ var Character = {};
 		} else {
 			return res.redirect('/login');
 		}
+	};
+
+	Character.getPoints = function(uid, callback) {
+		user.getUserField(uid, 'currency', function(err, cash) {
+			callback(err, cash);
+		});
+	};
+
+	Character.incrementPoints = function(uid, amount, callback) {
+		user.incrementUserFieldBy(uid, 'currency', amount, callback);
+	};
+
+	Character.decrementPoints = function(uid, amount, callback) {
+		Character.getPoints(uid, function(err, points) {
+			if (err || points < amount) {
+				callback({"status": 0, "message": "Insufficient Points"});
+			} else {
+				user.decrementUserFieldBy(uid, 'currency', amount, callback);
+			}
+		});
 	};
 
 	Character.getCharacterField = function(uid, field, callback) {
