@@ -22,6 +22,8 @@ var constants = Object.freeze({
 
 OF.init = function(app, middleware, controllers) {
 	//todo: check here if cash mod is activated.
+	require('./lib/middleware')(app, middleware);
+
 	require('./lib/nodebb');
 
 	require('./lib/controllers')(controllers);
