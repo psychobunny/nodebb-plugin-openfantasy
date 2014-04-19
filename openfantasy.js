@@ -27,11 +27,11 @@ OF.init = function(app, middleware, controllers) {
 	require('./lib/controllers')(controllers);
 	require('./lib/routes/main')(app, middleware, controllers);
 
-	require('./lib/alignments')(data);
-	require('./lib/classes')(data);
-	require('./lib/elements')(data);
-	require('./lib/monsters')(data);
-	require('./lib/races')(data);
+	require('./lib/alignments')(data.alignments);
+	require('./lib/classes')(data.classes);
+	require('./lib/elements')(data.elements);
+	require('./lib/monsters')(data.monsters);
+	require('./lib/races')(data.races);
 
 	require('./lib/config')(data);
 
