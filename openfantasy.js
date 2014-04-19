@@ -7,8 +7,7 @@ var	fs = require('fs'),
 	data = require('./data/data.js'),
 	db = module.parent.require('../src/database.js'),
 	templates = module.parent.require('../public/src/templates.js'),
-	translator = module.parent.require('../public/src/translator.js'),
-	app;
+	translator = module.parent.require('../public/src/translator.js');
 
 
 var Character = {};
@@ -801,9 +800,11 @@ var constants = Object.freeze({
 	"image_path": nconf.get('url') + "plugins/nodebb-plugin-openfantasy/images/"
 });
 
-OF.init = function(expressApp, middleware, controllers) {
+OF.init = function(app, middleware, controllers) {
 	//todo: check here if cash mod is activated.
-	app = expressApp;
+	require('./lib/controllers')(controllers);
+	require('./routes/main')(app, middleware, controllers);
+
 
 	function setupTranslations() {
 		//var lang = translator.getLanguage(); // this line started crashing :/
@@ -828,7 +829,7 @@ OF.init = function(expressApp, middleware, controllers) {
 		return data;
 	}
 	
-	setupTranslations();
+	//setupTranslations();
 	OF.data = normalizeImagePaths(OF.data);
 };
 
