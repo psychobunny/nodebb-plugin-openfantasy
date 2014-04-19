@@ -9,9 +9,6 @@
 			"hook": "filter:header.build", "method": "addNavigation"
 		},
 		{
-			"hook": "filter:server.create_routes", "method": "addRoute"
-		},
-		{
 			"hook": "action:app.load", "method": "init"
 		}
 	],

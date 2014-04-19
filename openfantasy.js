@@ -802,6 +802,7 @@ var constants = Object.freeze({
 });
 
 OF.init = function(expressApp, middleware, controllers) {
+	//todo: check here if cash mod is activated.
 	app = expressApp;
 
 	function setupTranslations() {
