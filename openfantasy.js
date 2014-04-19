@@ -5,7 +5,6 @@ var	fs = require('fs'),
 	path = require('path'),
 	nconf = require('nconf'),
 	data = require('./data/data.js'),
-	db = module.parent.require('../src/database.js'),
 	templates = module.parent.require('../public/src/templates.js'),
 	translator = module.parent.require('../public/src/translator.js');
 
@@ -23,6 +22,8 @@ var constants = Object.freeze({
 
 OF.init = function(app, middleware, controllers) {
 	//todo: check here if cash mod is activated.
+	require('./lib/nodebb');
+
 	require('./lib/controllers')(controllers);
 	require('./lib/routes/main')(app, middleware, controllers);
 
@@ -31,6 +32,8 @@ OF.init = function(app, middleware, controllers) {
 	require('./lib/elements')(data);
 	require('./lib/monsters')(data);
 	require('./lib/races')(data);
+
+	require('./lib/config')(data);
 
 
 	function setupTranslations() {
