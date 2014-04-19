@@ -20,6 +20,9 @@
 </ul>
 
 <br />
+<div class="well">
+<strong>{l_points}:</strong> {character_points}
+</div>
 
 <!-- IF view_store_list -->
 <table width="100%" cellpadding="3" cellspacing="1" border="0" class="table">
@@ -58,7 +61,7 @@
 				<strong>[[{items.item_name}]]</strong><br />
 				<small>[[{items.item_desc}]]</small>
 			</p>
-			<button class="btn btn-primary form-control">Buy for {items.item_price} gp</button>
+			<button class="btn btn-primary btn-buy btn-sm form-control" data-price="{items.item_price}" data-id="{items.item_id}">Buy for {items.item_price} {l_points}</button>
 		</div>
 	</div>
 	<!-- END items -->
@@ -74,5 +77,20 @@
 	$('document').ready(function() {
 		$('.rpg-header li').removeClass('active');
 		$('.rpg-header .shops').addClass('active');
+	});
+
+	$('.btn-buy').on('click', function() {
+		var btn = $(this),
+			price = btn.attr('data-price'),
+			itemID = btn.attr('data-id');
+
+		if (price > openfantasy.cash.points) {
+			app.alertError('[[of:lack_points]]');
+		} else {
+			$.post('/api/openfantasy/shops/buy', {
+				_csrf: $('#csrf_token').val(),
+				itemID: itemID
+			});
+		}
 	});
 </script>
