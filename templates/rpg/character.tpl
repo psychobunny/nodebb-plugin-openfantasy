@@ -12,7 +12,7 @@
 					<label for="character_race">Character Race</label>
 					<select class="form-control" id="character_race">
 						<!-- BEGIN races -->
-						<option value="{races.race_id}" data-desc="[[{races.race_desc}]]" data-src="{races.race_img}">[[{races.race_name}]]</option>
+						<option value="{races.race_id}" data-desc="{races.race_desc}" data-src="{races.race_img}">{races.race_name}</option>
 						<!-- END races -->
 					</select>
 				</div>
@@ -20,7 +20,7 @@
 					<label for="character_class">Character Class</label>
 					<select class="form-control" id="character_class">
 						<!-- BEGIN classes -->
-						<option value="{classes.class_id}" data-desc="[[{classes.class_desc}]]" data-src="{classes.class_img}">[[{classes.class_name}]]</option>
+						<option value="{classes.class_id}" data-desc="{classes.class_desc}" data-src="{classes.class_img}">{classes.class_name}</option>
 						<!-- END classes -->
 					</select>
 				</div>
@@ -28,7 +28,7 @@
 					<label for="character_element">Select an Element</label>
 					<select class="form-control" id="character_element">
 						<!-- BEGIN elements -->
-						<option value="{elements.element_id}" data-desc="[[{elements.element_desc}]]" data-src="{elements.element_img}">[[{elements.element_name}]]</option>
+						<option value="{elements.element_id}" data-desc="{elements.element_desc}" data-src="{elements.element_img}">{elements.element_name}</option>
 						<!-- END elements -->
 					</select>
 				</div>
@@ -36,7 +36,7 @@
 					<label for="character_alignment">Select an Alignment</label>
 					<select class="form-control" id="character_alignment">
 						<!-- BEGIN alignments -->
-						<option value="{alignments.alignment_id}" data-desc="[[{alignments.alignment_desc}]]" data-src="{alignments.alignment_img}">[[{alignments.alignment_name}]]</option>
+						<option value="{alignments.alignment_id}" data-desc="{alignments.alignment_desc}" data-src="{alignments.alignment_img}">{alignments.alignment_name}</option>
 						<!-- END alignments -->
 					</select>
 				</div>
@@ -103,19 +103,19 @@ $('document').ready(function() {
 				</tr>-->
 				<tr>
 					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_class]]:</td>
-					<td align="center"><span><img src="{class_img}" alt="[[{character_class}]]"><br />[[{character_class}]]</span></td>
+					<td align="center"><span><img src="{class_img}" alt="{character_class}"><br />{character_class}</span></td>
 				</tr>
 				<tr>
 					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_race]]:</td>
-					<td align="center"><span><img src="{race_img}" alt="[[{character_race}]]"><br />[[{character_race}]]</span></td>
+					<td align="center"><span><img src="{race_img}" alt="{character_race}"><br />{character_race]</span></td>
 				</tr>
 				<tr>
 					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_element]]:</td>
-					<td align="center"><span><img src="{element_img}" alt="[[{character_element}]]"><br />[[{character_element}]]</span></td>
+					<td align="center"><span><img src="{element_img}" alt="{character_element}"><br />{character_element]</span></td>
 				</tr>
 				<tr>
 					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_alignment]]:</td>
-					<td align="center"><span><img src="{alignment_img}" alt="[[{character_alignment}]]"><br />[[{character_alignment}]]</span></td>
+					<td align="center"><span><img src="{alignment_img}" alt="{character_alignment}"><br />{character_alignment]</span></td>
 				</tr>
 			</table>
 			<!-- begin owner -->

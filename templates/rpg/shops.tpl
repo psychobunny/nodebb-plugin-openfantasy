@@ -58,8 +58,8 @@
 		<div class="well text-center">
 			<img class="img-thumbnail" src="{items.item_icon}" /><br />
 			<p style="height: 100px;">
-				<strong>[[{items.item_name}]]</strong><br />
-				<small>[[{items.item_desc}]]</small>
+				<strong>{items.item_name}</strong><br />
+				<small>{items.item_desc}</small>
 			</p>
 			<button class="btn btn-primary btn-buy btn-sm form-control" data-price="{items.item_price}" data-id="{items.item_id}">Buy for {items.item_price} {l_points}</button>
 		</div>

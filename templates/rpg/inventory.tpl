@@ -7,8 +7,8 @@
 		<div class="well text-center">
 			<img class="img-thumbnail" src="{items.item_icon}" /><br />
 			<p style="height: 100px;">
-				<strong>[[{items.item_name}]]</strong><br />
-				<small>[[{items.item_desc}]]</small>
+				<strong>{items.item_name}</strong><br />
+				<small>{items.item_desc}</small>
 			</p>
 			<button class="btn btn-danger btn-delete btn-sm form-control" data-uiid="{items.user_item_id}">[[of:Dispose]]</button>
 		</div>
