@@ -9,6 +9,7 @@
 		{ "hook": "filter:server.create_routes", "method": "addRoute", "callbacked": true }
 	],
 	"staticDir": "./static",
+	"templates": "./templates",
 	"css": [
 		"style.css"
 	]
