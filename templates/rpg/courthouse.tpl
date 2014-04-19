@@ -1,4 +1,4 @@
-<div class="alert alert-info">Coming Soon!</div>
+<div class="alert alert-warning">[[of:cell_judgement_never]]</div>
 
 <script type="text/javascript">
 	$('document').ready(function() {
