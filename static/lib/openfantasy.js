@@ -1,5 +1,5 @@
 "use strict";
-/*global translator*/
+/*global translator, templates*/
 
 var openfantasy = openfantasy || {
 	templates: {
@@ -7,6 +7,20 @@ var openfantasy = openfantasy || {
 		footer: null
 	}
 };
+
+function getCash() {
+	$.get('/api/cash', function(cash) {
+		openfantasy.cash = cash;
+		templates.setGlobal('l_points', cash.currency);
+
+		parseCash();
+	});
+}
+
+function parseCash() {
+	var content = $('#content');
+	content.html(content.html().replace(/{character_points}/g, openfantasy.cash.points).replace(/{l_points}/g, openfantasy.cash.currency));
+}
 
 $(document).ready(function() {
 	$.get('/templates/rpg/header.tpl', function(header) {
@@ -29,9 +43,8 @@ $(document).ready(function() {
 			content.html(html);
 		}
 
-		$.get('/api/cash', function(cash) {
-			// this is temporary, once ADR is fully ported I'd like to go through all of these and replace with <span data-target="character.points">
-			content.html(content.html().replace(/{character_points}/g, cash.points).replace(/{l_points}/g, cash.currency));
-		});
+		getCash();
 	});
+
+	getCash();
 });
