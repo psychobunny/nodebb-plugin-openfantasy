@@ -819,7 +819,7 @@ OF.addNavigation = function(custom_header, callback) {
 			"text": "RPG"
 		});
 
-	return custom_header;
+	callback(null, custom_header);
 };
 
 OF.addRoute = function(custom_routes, callback) {

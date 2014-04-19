@@ -5,8 +5,12 @@
 	"url": "https://github.com/psychobunny/nodebb-plugin-openfantasy",
 	"library": "./openfantasy.js",
 	"hooks": [
-		{ "hook": "filter:header.build", "method": "addNavigation", "callbacked": false },
-		{ "hook": "filter:server.create_routes", "method": "addRoute", "callbacked": true }
+		{
+			"hook": "filter:header.build", "method": "addNavigation"
+		},
+		{
+			"hook": "filter:server.create_routes", "method": "addRoute"
+		}
 	],
 	"staticDir": "./static",
 	"templates": "./templates",
