@@ -92,6 +92,7 @@
 				itemID: itemID
 			}, function(result) {
 				app['alert' + (!!result.status ? 'Success' : 'Error')](result.message);
+				openfantasy.refreshCash();
 			});
 		}
 	});
