@@ -35,11 +35,14 @@ OF.init = function(app, middleware, controllers) {
 
 	require('./lib/config')(data);
 
-
 	function setupTranslations() {
-		//var lang = translator.getLanguage(); // this line started crashing :/
-		var lang = 'en';
-		translator.addTranslation('of', require('./static/language/' + lang + '/openfantasy.json'));
+		// todo: need to add all translations in directory
+		var lang = 'en_GB';
+		translator.addTranslation(lang, 'of', require('./static/language/' + lang + '/openfantasy.json'));
+
+		app.get('/language/' + lang + '/of.json', function(req, res, next) {
+			res.send(200, require('./static/language/' + lang + '/openfantasy.json'));
+		});
 	}
 
 	function normalizeImagePaths(data) {
@@ -59,7 +62,7 @@ OF.init = function(app, middleware, controllers) {
 		return data;
 	}
 	
-	//setupTranslations();
+	setupTranslations();
 	OF.data = normalizeImagePaths(OF.data);
 };
 
