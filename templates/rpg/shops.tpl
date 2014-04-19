@@ -32,10 +32,10 @@
 
 	<!-- BEGIN store -->
 		<tr height="30"> 
-			<td class="{store.row_class}" onclick="window.location.href='{store.u_store_name}';"><span class="nav">{store.store_img}</span></a></td>
-			<td class="{store.row_class}" onclick="window.location.href='{store.u_store_name}';"><a href="./shops/store/{store.store_id}"><span class="nav">{store.store_name}</span></a></td>
-			<td class="{store.row_class}" onclick="window.location.href='{store.u_store_name}';"><span class="gen"><i>{store.store_desc}</i></span></td>
-			<td class="{store.row_class}" onclick="window.location.href='{store.u_store_name}';"><span class="gen">{store.store_status}</span></td>
+			<td class="{store.row_class}"><span class="nav">{store.store_img}</span></a></td>
+			<td class="{store.row_class}"><a href="./shops/store/{store.store_id}"><span class="nav">{store.store_name}</span></a></td>
+			<td class="{store.row_class}"><span class="gen"><i>{store.store_desc}</i></span></td>
+			<td class="{store.row_class}"><span class="gen">{store.store_status}</span></td>
 		</tr>
 	<!-- END store -->
 	<tr> 
