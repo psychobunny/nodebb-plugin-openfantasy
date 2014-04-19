@@ -30,11 +30,12 @@ OF.init = function(app, middleware, controllers) {
 
 	require('./lib/alignments').init(data.alignments);
 	require('./lib/classes').init(data.classes);
+	require('./lib/config').init(data.config);
 	require('./lib/elements').init(data.elements);
+	require('./lib/items').init(data.shops_items);
 	require('./lib/monsters').init(data.monsters);
 	require('./lib/races').init(data.races);
-
-	require('./lib/config').init(data.config);
+	require('./lib/stores').init(data.stores);
 
 	function setupTranslations() {
 		// todo: need to add all translations in directory
