@@ -34,7 +34,7 @@ OF.init = function(app, middleware, controllers) {
 	require('./lib/monsters').init(data.monsters);
 	require('./lib/races').init(data.races);
 
-	require('./lib/config')(data.config);
+	require('./lib/config').init(data.config);
 
 	function setupTranslations() {
 		// todo: need to add all translations in directory
