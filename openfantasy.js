@@ -1,3 +1,5 @@
+"use strict";
+
 var	fs = require('fs'),
 	async = require('async'),
 	path = require('path'),
@@ -23,27 +25,27 @@ var Character = {};
 						elementData = OF.data.elements[req.body.character_element - 1],
 						classData = OF.data.classes[req.body.character_class - 1];
 
-					var character_might = Math.floor(Math.random() * 10) + 10 + (raceData['race_might_bonus'] - raceData['race_might_penalty']),
-						character_dexterity = Math.floor(Math.random() * 10) + 10 + (raceData['race_dexterity_bonus'] - raceData['race_dexterity_penalty']),
-						character_constitution = Math.floor(Math.random() * 10) + 10 + (raceData['race_constitution_bonus'] - raceData['race_constitution_penalty']),
-						character_intelligence = Math.floor(Math.random() * 10) + 10 + (raceData['race_intelligence_bonus'] - raceData['race_intelligence_penalty']),
-						character_wisdom = Math.floor(Math.random() * 10) + 10 + (raceData['race_wisdom_bonus'] - raceData['race_wisdom_penalty']),
-						character_charisma = Math.floor(Math.random() * 10) + 10 + (raceData['race_charisma_bonus'] - raceData['race_charisma_penalty']),
-						character_magic_attack = Math.floor(Math.random() * 10) + 10 + (raceData['race_magic_attack_bonus'] - raceData['race_magic_attack_penalty']),
-						character_magic_resistance = Math.floor(Math.random() * 10) + 10 + (raceData['race_magic_resistance_bonus'] - raceData['race_magic_resistance_penalty']),
+					var character_might = Math.floor(Math.random() * 10) + 10 + (raceData.race_might_bonus - raceData.race_might_penalty),
+						character_dexterity = Math.floor(Math.random() * 10) + 10 + (raceData.race_dexterity_bonus - raceData.race_dexterity_penalty),
+						character_constitution = Math.floor(Math.random() * 10) + 10 + (raceData.race_constitution_bonus - raceData.race_constitution_penalty),
+						character_intelligence = Math.floor(Math.random() * 10) + 10 + (raceData.race_intelligence_bonus - raceData.race_intelligence_penalty),
+						character_wisdom = Math.floor(Math.random() * 10) + 10 + (raceData.race_wisdom_bonus - raceData.race_wisdom_penalty),
+						character_charisma = Math.floor(Math.random() * 10) + 10 + (raceData.race_charisma_bonus - raceData.race_charisma_penalty),
+						character_magic_attack = Math.floor(Math.random() * 10) + 10 + (raceData.race_magic_attack_bonus - raceData.race_magic_attack_penalty),
+						character_magic_resistance = Math.floor(Math.random() * 10) + 10 + (raceData.race_magic_resistance_bonus - raceData.race_magic_resistance_penalty),
 
-						character_skill_mining = 1 + (raceData['race_skill_mining_bonus'] + elementData['element_skill_mining_bonus']),
-						character_skill_stone = 1 + (raceData['race_skill_stone_bonus'] + elementData['element_skill_stone_bonus']),
-						character_skill_forge = 1 + (raceData['race_skill_forge_bonus'] + elementData['element_skill_forge_bonus']),
-						character_skill_enchantment = 1 + (raceData['race_skill_enchantment_bonus'] + elementData['element_skill_enchantment_bonus']),
-						character_skill_trading = 1 + (raceData['race_skill_trading_bonus'] + elementData['element_skill_trading_bonus']),
-						character_skill_thief = 1 + (raceData['race_skill_thief_bonus'] + elementData['element_skill_thief_bonus']),
+						character_skill_mining = 1 + (raceData.race_skill_mining_bonus + elementData.element_skill_mining_bonus),
+						character_skill_stone = 1 + (raceData.race_skill_stone_bonus + elementData.element_skill_stone_bonus),
+						character_skill_forge = 1 + (raceData.race_skill_forge_bonus + elementData.element_skill_forge_bonus),
+						character_skill_enchantment = 1 + (raceData.race_skill_enchantment_bonus + elementData.element_skill_enchantment_bonus),
+						character_skill_trading = 1 + (raceData.race_skill_trading_bonus + elementData.element_skill_trading_bonus),
+						character_skill_thief = 1 + (raceData.race_skill_thief_bonus + elementData.element_skill_thief_bonus),
 
-						character_hp = classData['class_base_hp'],
-						character_hp_max = classData['class_base_hp'],
-						character_mp = classData['class_base_mp'],
-						character_mp_max = classData['class_base_mp'],
-						character_ac = classData['class_base_ac'];
+						character_hp = classData.class_base_hp,
+						character_hp_max = classData.class_base_hp,
+						character_mp = classData.class_base_mp,
+						character_mp_max = classData.class_base_mp,
+						character_ac = classData.class_base_ac;
 
 					db.setObject('of:character:' + uid, {
 						character_id: uid,
@@ -67,10 +69,10 @@ var Character = {};
 						character_wisdom: character_wisdom,
 						character_charisma: character_charisma,
 						character_birth: Date.now(),
-						character_battle_limit: OF.data.config['character_battle_limit'],
-						character_skill_limit: OF.data.config['character_skill_limit'],
-						character_trading_limit: OF.data.config['character_trading_limit'],
-						character_thief_limit: OF.data.config['character_thief_limit'],
+						character_battle_limit: OF.data.config.character_battle_limit,
+						character_skill_limit: OF.data.config.character_skill_limit,
+						character_trading_limit: OF.data.config.character_trading_limit,
+						character_thief_limit: OF.data.config.character_thief_limit,
 						character_sp: 0,
 						character_magic_attack: character_magic_attack,
 						character_magic_resistance: character_magic_resistance,
@@ -218,7 +220,7 @@ var Character = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Temple = {};
@@ -248,7 +250,7 @@ var Temple = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Shops = {};
@@ -262,15 +264,17 @@ var Shops = {};
 			Character.getCharacterField(req.user.uid, 'character_id', function(err, data) {
 				if (data) {
 					if (!mode) {
-						store_data = OF.data.stores;
+						var store_data = OF.data.stores;
 
-						for (var store in store_data) {
-							var store = store_data[store];
+						for (var s in store_data) {
+							if (store_data.hasOwnProperty(s)) {
+								var store = store_data[s];
 
-							if (store.sale && store.store_status) {
-								store.store_status = "[[of:store_sale]]";
-							} else {
-								store.store_status = store.store_status ? "[[of:store_open]]" : "[[of:store_closed]]";
+								if (store.sale && store.store_status) {
+									store.store_status = "[[of:store_sale]]";
+								} else {
+									store.store_status = store.store_status ? "[[of:store_open]]" : "[[of:store_closed]]";
+								}
 							}
 						}
 
@@ -286,9 +290,11 @@ var Shops = {};
 						var shops_items = OF.data.shops_items, items = [];
 
 						for (var i in shops_items) {
-							var item = shops_items[i];
-							if (item.item_store_id === mid) {
-								items.push(item);
+							if (shops_items.hasOwnProperty(i)) {
+								var item = shops_items[i];
+								if (item.item_store_id === mid) {
+									items.push(item);
+								}
 							}
 						}
 						content = content.parse({
@@ -310,7 +316,7 @@ var Shops = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 
@@ -402,7 +408,9 @@ var Monsters = {};
 			dictionary = {};
 
 		for (var m in monsters) {
-			dictionary[monsters[m].monster_id] = monsters[m];
+			if (monsters.hasOwnProperty(m)) {
+				dictionary[monsters[m].monster_id] = monsters[m];
+			}
 		}
 
 		OF.data.monsters = dictionary;
@@ -433,7 +441,9 @@ var Alignments = {};
 			dictionary = {};
 
 		for (var a in alignments) {
-			dictionary[alignments[a].alignment_id] = alignments[a];
+			if (alignments.hasOwnProperty(a)) {
+				dictionary[alignments[a].alignment_id] = alignments[a];
+			}
 		}
 
 		OF.data.alignments = dictionary;
@@ -451,7 +461,9 @@ var Classes = {};
 			dictionary = {};
 
 		for (var c in classes) {
-			dictionary[classes[c].class_id] = classes[c];
+			if (classes.hasOwnProperty(c)) {
+				dictionary[classes[c].class_id] = classes[c];
+			}
 		}
 
 		OF.data.classes = dictionary;
@@ -468,8 +480,10 @@ var Elements = {};
 		var elements = OF.data.elements,
 			dictionary = {};
 
-		for (var a in elements) {
-			dictionary[elements[a].element_id] = elements[a];
+		for (var e in elements) {
+			if (elements.hasOwnProperty(e)) {
+				dictionary[elements[e].element_id] = elements[e];
+			}
 		}
 
 		OF.data.elements = dictionary;
@@ -487,7 +501,9 @@ var Items = {};
 			dictionary = {};
 
 		for (var i in items) {
-			dictionary[items[i].item_id] = items[i];
+			if (items.hasOwnProperty(i)) {
+				dictionary[items[i].item_id] = items[i];
+			}
 		}
 
 		OF.data.items = dictionary;
@@ -520,7 +536,7 @@ var Equipment = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Inventory = {};
@@ -545,7 +561,7 @@ var Inventory = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Skills = {};
@@ -570,7 +586,7 @@ var Skills = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Courthouse = {};
@@ -595,7 +611,7 @@ var Courthouse = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Vault = {};
@@ -620,7 +636,7 @@ var Vault = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var StockMarket = {};
@@ -645,7 +661,7 @@ var StockMarket = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Forge = {};
@@ -670,7 +686,7 @@ var Forge = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Mining = {};
@@ -695,7 +711,7 @@ var Mining = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Enchant = {};
@@ -720,7 +736,7 @@ var Enchant = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Warehouse = {};
@@ -745,7 +761,7 @@ var Warehouse = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 var Training = {};
@@ -770,7 +786,7 @@ var Training = {};
 		{
 			return res.redirect('/login');
 		}
-	}
+	};
 }());
 
 
@@ -794,7 +810,7 @@ OF.init = function() {
 	function normalizeImagePaths(data) {
 		for (var d in data) {
 			if (data.hasOwnProperty(d)) {
-				if (data[d].constructor == Array || data[d] instanceof Object) {
+				if (data[d].constructor === Array || data[d] instanceof Object) {
 					data[d] = normalizeImagePaths(data[d]);
 				} else {
 					var extension = data[d].substr(data[d].length - 4).toLowerCase();
@@ -810,7 +826,7 @@ OF.init = function() {
 	
 	setupTranslations();
 	OF.data = normalizeImagePaths(OF.data);
-}
+};
 
 OF.addNavigation = function(custom_header, callback) {
 	custom_header.navigation.push({
