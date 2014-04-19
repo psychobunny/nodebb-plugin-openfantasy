@@ -59,9 +59,9 @@
 
 
 	"your_character_lack": "You first need to create a character before performing this action",
-	"return": " 'Click %shere%s to return to the previous page",
-	"lack_points": "'You cannot afford this action",
-	"lack_sp": "'You have not acquired enough Spirit Points (SP) to complete this action",
+	"return": "Click %shere%s to return to the previous page",
+	"lack_points": "You cannot afford this action",
+	"lack_sp": "You have not acquired enough Spirit Points (SP) to complete this action",
 	"default_points_name": "Points",
 	"character_lack": "This user has not created a character yet",
 	"character_ban": "The administrator of this forum has banned you from using any of the RPG features.<br /><br />Please contact your administrator for further details.",
