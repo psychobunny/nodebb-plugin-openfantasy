@@ -6,6 +6,7 @@ var	fs = require('fs'),
 	nconf = require('nconf'),
 	winston = require('winston'),
 	data = require('./data/data'),
+	meta = module.parent.require('./meta'),
 	plugins = module.parent.require('./plugins'),
 	templates = module.parent.require('../public/src/templates'),
 	translator = module.parent.require('../public/src/translator');
@@ -74,6 +75,8 @@ OF.init = function(app, middleware, controllers) {
 		if (!isActive) {
 			return winston.error('[openfantasy] Cash MOD not installed, OpenFantasy has been deactivated');
 		}
+
+		templates.setGlobal('l_points', meta.config['cash:currency_name'] ? meta.config['cash:currency_name'] : 'points');
 
 		initialize(app, middleware, controllers);
 	});
