@@ -10,6 +10,9 @@
 		},
 		{
 			"hook": "filter:server.create_routes", "method": "addRoute"
+		},
+		{
+			"hook": "action:app.init", "method": "init"
 		}
 	],
 	"staticDir": "./static",

@@ -7,7 +7,8 @@ var	fs = require('fs'),
 	data = require('./data/data.js'),
 	db = module.parent.require('../src/database.js'),
 	templates = module.parent.require('../public/src/templates.js'),
-	translator = module.parent.require('../public/src/translator.js');
+	translator = module.parent.require('../public/src/translator.js'),
+	app;
 
 
 var Character = {};
@@ -800,7 +801,9 @@ var constants = Object.freeze({
 	"image_path": nconf.get('url') + "plugins/nodebb-plugin-openfantasy/images/"
 });
 
-OF.init = function() {
+OF.init = function(expressApp, middleware, controllers) {
+	app = expressApp;
+
 	function setupTranslations() {
 		//var lang = translator.getLanguage(); // this line started crashing :/
 		var lang = 'en';
@@ -1058,5 +1061,4 @@ OF.addRoute = function(custom_routes, callback) {
 	});
 };
 
-OF.init();
 module.exports = OF;
