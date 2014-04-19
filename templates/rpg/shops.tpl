@@ -55,11 +55,19 @@ You have <strong>{character_points}</strong> {l_points}.
 <div class="row">
 	<!-- BEGIN items -->
 	<div class="col-xs-3">
-		<div class="well text-center">
+		<div class="well text-center item-card">
 			<img class="img-thumbnail" src="{items.item_icon}" /><br />
-			<p style="height: 100px;">
-				<strong>{items.item_name}</strong><br />
-				<small>{items.item_desc}</small>
+			<p>
+				<div class="front">
+					<strong>{items.item_name}</strong><br />
+					<small>{items.item_desc}</small>
+				</div>
+				<div class="back">
+					<strong>{items.item_name}</strong><br />
+					<small><strong>{items.item_power}</strong> [[of:power]]</small><br />
+					<small><strong>{items.item_quality}</strong> [[of:quality]]</small><br />
+					<small><strong>{items.item_duration}/{items.item_duration_max}</strong> [[of:duration]]</small>
+				</div>
 			</p>
 			<button class="btn btn-primary btn-buy btn-sm form-control" data-price="{items.item_price}" data-id="{items.item_id}">Buy for {items.item_price} {l_points}</button>
 		</div>
@@ -77,6 +85,12 @@ You have <strong>{character_points}</strong> {l_points}.
 	$('document').ready(function() {
 		$('.rpg-header li').removeClass('active');
 		$('.rpg-header .shops').addClass('active');
+	});
+
+	$('.item-card').on('mouseover', function() {
+		$(this).addClass('flipped');
+	}).on('mouseout', function() {
+		$(this).removeClass('flipped');
 	});
 
 	$('.btn-buy').on('click', function() {

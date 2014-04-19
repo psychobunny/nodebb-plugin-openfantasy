@@ -1,3 +1,23 @@
-body {
+.item-card {
+	cursor: pointer;
+	
+	.front, .back {
+		height: 100px;
+	}
 
-} 
+	.front {
+		display: block;
+	}
+	.back {
+		display: none;
+	}
+
+	&.flipped {
+		.front {
+			display: none;
+		}
+		.back {
+			display: block;
+		}		
+	}
+}

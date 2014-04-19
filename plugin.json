@@ -14,7 +14,7 @@
 	],
 	"staticDir": "./static",
 	"templates": "./templates",
-	"css": [
+	"less": [
 		"./static/style.less"
 	],
 	"scripts": [

@@ -4,11 +4,19 @@
 	<!-- ENDIF !items.length -->
 	<!-- BEGIN items -->
 	<div class="col-xs-3">
-		<div class="well text-center">
+		<div class="well text-center item-card">
 			<img class="img-thumbnail" src="{items.item_icon}" /><br />
-			<p style="height: 100px;">
-				<strong>{items.item_name}</strong><br />
-				<small>{items.item_desc}</small>
+			<p>
+				<div class="back">
+					<strong>{items.item_name}</strong><br />
+					<small>{items.item_desc}</small>
+				</div>
+				<div class="front">
+					<strong>{items.item_name}</strong><br />
+					<small><strong>{items.item_power}</strong> [[of:power]]</small><br />
+					<small><strong>{items.item_quality}</strong> [[of:quality]]</small><br />
+					<small><strong>{items.item_duration}/{items.item_duration_max}</strong> [[of:duration]]</small>
+				</div>
 			</p>
 			<button class="btn btn-danger btn-delete btn-sm form-control" data-uiid="{items.user_item_id}">[[of:Dispose]]</button>
 		</div>
@@ -20,6 +28,12 @@
 	$('document').ready(function() {
 		$('.rpg-header li').removeClass('active');
 		$('.rpg-header .inventory').addClass('active');
+	});
+
+	$('.item-card').on('mouseover', function() {
+		$(this).addClass('flipped');
+	}).on('mouseout', function() {
+		$(this).removeClass('flipped');
 	});
 
 	$('.btn-delete').on('click', function(err) {
