@@ -1,27 +1,25 @@
-<nav class="navbar navbar-default" role="navigation">
-	<ul class="nav navbar-nav">
-		<li class="active">
-			<a href="/rpg/shops">[[of:forum_shops_go]]</a>
-		</li>
-		<li>
-			<a href="#">[[of:users_shops_list]]</a>
-		</li>
-		<li>
-			<a href="#">[[of:items_search]]</a>
-		</li>
-		<!-- IF shop -->
-		<li>
-			<a href="#">[[of:users_shops_manage]]</a>
-		</li>
-		<!-- ELSE -->
-		<li>
-			<a href="#">[[of:users_shops_create]]</a>
-		</li>
-		<!-- ENDIF shop -->
-	</ul>
-</nav>
+<ul class="nav nav-pills">
+	<li class="active">
+		<a href="/rpg/shops">[[of:forum_shops_go]]</a>
+	</li>
+	<li>
+		<a href="#">[[of:users_shops_list]]</a>
+	</li>
+	<li>
+		<a href="#">[[of:items_search]]</a>
+	</li>
+	<!-- IF shop -->
+	<li>
+		<a href="#">[[of:users_shops_manage]]</a>
+	</li>
+	<!-- ELSE -->
+	<li>
+		<a href="#">[[of:users_shops_create]]</a>
+	</li>
+	<!-- ENDIF shop -->
+</ul>
 
-
+<br />
 
 <!-- IF view_store_list -->
 <table width="100%" cellpadding="3" cellspacing="1" border="0" class="table">
