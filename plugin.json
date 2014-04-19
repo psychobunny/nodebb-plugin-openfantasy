@@ -16,5 +16,8 @@
 	"templates": "./templates",
 	"css": [
 		"./static/style.less"
+	],
+	"scripts": [
+		"static/lib/openfantasy.js"
 	]
 }

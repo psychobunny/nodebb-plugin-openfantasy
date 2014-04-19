@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row openfantasy">
 	<div class="col-lg-3">
 		<ul class="nav nav-pills nav-stacked rpg-header">
 			<li class="active character"><a href="/rpg/character">[[of:character]]</a></li>
