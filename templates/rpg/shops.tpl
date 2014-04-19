@@ -21,7 +21,7 @@
 
 <br />
 <div class="well">
-<strong>{l_points}:</strong> {character_points}
+You have <strong>{character_points}</strong> {l_points}.
 </div>
 
 <!-- IF view_store_list -->
