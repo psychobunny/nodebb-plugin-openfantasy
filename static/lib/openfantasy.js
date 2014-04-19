@@ -10,9 +10,12 @@ var openfantasy = openfantasy || {
 
 function getCash() {
 	$.get('/api/cash', function(cash) {
-		openfantasy.cash = cash;
-		templates.setGlobal('l_points', cash.currency);
+		openfantasy.cash = {
+			currency: cash.currency,
+			points: parseInt(cash.points, 10)
+		};
 
+		templates.setGlobal('l_points', cash.currency);
 		parseCash();
 	});
 }

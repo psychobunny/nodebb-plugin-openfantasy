@@ -81,7 +81,7 @@
 
 	$('.btn-buy').on('click', function() {
 		var btn = $(this),
-			price = btn.attr('data-price'),
+			price = parseInt(btn.attr('data-price'), 10),
 			itemID = btn.attr('data-id');
 
 		if (price > openfantasy.cash.points) {
@@ -90,6 +90,8 @@
 			$.post('/api/openfantasy/shops/buy', {
 				_csrf: $('#csrf_token').val(),
 				itemID: itemID
+			}, function(result) {
+				app['alert' + (!!result.status ? 'Success' : 'Error')](result.message);
 			});
 		}
 	});

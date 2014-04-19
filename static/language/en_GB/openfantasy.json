@@ -303,7 +303,7 @@
 	"shop_forums_desc": "All the existing items!",
 	"lack_items": "This item is not for sale",
 	"lack_shops": "You first have to create a shop",
-	"buy_item_success": "Items bought successfully for %s %s",
+	"buy_item_success": "Item bought successfully for %1 %2",
 	"steal_item_success": "Item successfully stolen!",
 	"steal_item_failure": "You have not managed to steal this item",
 	"steal_item_failure_suite": "You had to pay a fine of %s %s for attempted theft",
