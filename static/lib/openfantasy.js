@@ -28,5 +28,10 @@ $(document).ready(function() {
 			var html = openfantasy.templates.header + content.html() + openfantasy.templates.footer;
 			content.html(html);
 		}
+
+		$.get('/api/cash', function(cash) {
+			// this is temporary, once ADR is fully ported I'd like to go through all of these and replace with <span data-target="character.points">
+			content.html(content.html().replace(/{character_points}/g, cash.points).replace(/{l_points}/g, cash.currency));
+		});
 	});
 });
