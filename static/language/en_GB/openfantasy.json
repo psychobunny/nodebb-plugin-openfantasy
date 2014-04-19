@@ -890,6 +890,7 @@
 	"equip_gloves": "<b>Gloves</b>",
 	"equip_amulet": "<b>Amulet</b>",
 	"equip_ring": "<b>Ring</b>",
+	"equip_none": "No equipment",
 	"pvp_defy": "Challenge",
 	"pvp_waiting_battles": "Challenges on Standby",
 	"pvp_waiting_battles_you": "Challenges awaiting your approval",

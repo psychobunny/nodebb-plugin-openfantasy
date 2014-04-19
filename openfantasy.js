@@ -59,9 +59,11 @@ function normalizeImagePaths(data) {
 			if (data[d].constructor === Array || data[d] instanceof Object) {
 				data[d] = normalizeImagePaths(data[d]);
 			} else {
-				var extension = data[d].substr(data[d].length - 4).toLowerCase();
-				if (extension === '.png' || extension === '.jpg' || extension === '.jpeg' || extension === '.gif') {
-					data[d] = constants.image_path + data[d];
+				if (typeof data[d] === 'string') {
+					var extension = data[d].substr(data[d].length - 4).toLowerCase();
+					if (extension === '.png' || extension === '.jpg' || extension === '.jpeg' || extension === '.gif') {
+						data[d] = constants.image_path + data[d];
+					}
 				}
 			}
 		}
