@@ -24,7 +24,13 @@ var constants = Object.freeze({
 OF.init = function(app, middleware, controllers) {
 	//todo: check here if cash mod is activated.
 	require('./lib/controllers')(controllers);
-	require('./routes/main')(app, middleware, controllers);
+	require('./lib/routes/main')(app, middleware, controllers);
+
+	require('./lib/alignments')(data);
+	require('./lib/classes')(data);
+	require('./lib/elements')(data);
+	require('./lib/monsters')(data);
+	require('./lib/races')(data);
 
 
 	function setupTranslations() {
