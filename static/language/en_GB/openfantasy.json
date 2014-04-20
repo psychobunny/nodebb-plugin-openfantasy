@@ -881,6 +881,7 @@
 	"pvp_prefs_notification_pm": "Enable notification of events by private message",
 	"pvp_prefs_allow_defies": "Allow other users to challenge me",
 	"equip": "Equip Prior to Battle",
+	"equip_equipped": "Item Equipped",
 	"equip_done": "The selected items have been equipped",
 	"equip_title": "Select your equipment prior to battle",
 	"equip_title_of": "%s's Equipment",

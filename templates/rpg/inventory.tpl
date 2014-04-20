@@ -18,7 +18,9 @@
 					<small><strong>{items.item_duration}/{items.item_duration_max}</strong> [[of:duration]]</small>
 				</div>
 			</p>
-			<button class="btn btn-danger btn-delete btn-sm form-control" data-uiid="{items.user_item_id}">[[of:Dispose]]</button>
+			<button class="btn btn-danger btn-delete btn-sm form-control" data-uiid="{items.user_item_id}" <!-- IF items.equipped -->disabled<!-- ENDIF items.equipped -->>
+				<!-- IF items.equipped -->[[of:equip_equipped]]<!-- ELSE -->[[of:Dispose]]<!-- ENDIF items.equipped -->
+			</button>
 		</div>
 	</div>
 	<!-- END items -->
