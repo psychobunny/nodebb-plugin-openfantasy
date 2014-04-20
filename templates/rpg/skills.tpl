@@ -10,75 +10,75 @@
 	</tr>
 	<tr>
 		<td class="row1" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{MINING_IMG}" alt="[[of:mining]]"></td>
-		<td class="row1" align="center"><span class="gen">{MINING}</span></td>
+		<td class="row1" align="center"><span class="gen">{mining}</span></td>
 		<td class="row1" align="center"><span class="gensmall">[[of:mining_desc]]</span></td>
 		<td class="row1" align="center">
 			<table class="table" align="center" width="100%" height="100%">
 				<tr>
-					<td align="center"><span class="gensmall">[[of:mining]]: {MINING_MIN} / {MINING_MAX}</td>
+					<td align="center"><span class="gensmall">[[of:mining]]: {mining_min} / {mining_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{MINING_BAR}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{MINING_BAR_EMPTY}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{mining_bar}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{mining_bar_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td class="row2" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{STONE_IMG}" alt="[[of:stone]]"></td>
-		<td class="row2" align="center"><span class="gen">{STONE}</span></td>
+		<td class="row2" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{stone_img}" alt="[[of:stone]]"></td>
+		<td class="row2" align="center"><span class="gen">{stone}</span></td>
 		<td class="row2" align="center"><span class="gensmall">[[of:stone_desc]]</span></td>
 		<td class="row2" align="center">
 			<table class="table" align="center" width="100%" height="100%">
 				<tr>
-					<td align="center"><span class="gensmall">[[of:stone]]: {STONE_MIN} / {STONE_MAX}</td>
+					<td align="center"><span class="gensmall">[[of:stone]]: {stone_min} / {stone_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{STONE_BAR}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{STONE_BAR_EMPTY}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{stone_bar}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{stone_bar_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td class="row1" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{FORGE_IMG}" alt="[[of:forge]]"></td>
-		<td class="row1" align="center"><span class="gen">{FORGE}</span></td>
+		<td class="row1" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{forge_img}" alt="[[of:forge]]"></td>
+		<td class="row1" align="center"><span class="gen">{forge}</span></td>
 		<td class="row1" align="center"><span class="gensmall">[[of:forge_desc]]</span></td>
 		<td class="row1" align="center">
 			<table class="table" align="center" width="100%" height="100%">
 				<tr>
-					<td align="center"><span class="gensmall">[[of:forge]]: {FORGE_MIN} / {FORGE_MAX}</td>
+					<td align="center"><span class="gensmall">[[of:forge]]: {forge_min} / {forge_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{FORGE_BAR}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{FORGE_BAR_EMPTY}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{forge_bar}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{forge_bar_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td class="row2" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{ENCHANTMENT_IMG}" alt="[[of:enchantment]]"></td>
-		<td class="row2" align="center"><span class="gen">{ENCHANTMENT}</span></td>
+		<td class="row2" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{enchantment_img}" alt="[[of:enchantment]]"></td>
+		<td class="row2" align="center"><span class="gen">{enchantment}</span></td>
 		<td class="row2" align="center"><span class="gensmall">[[of:enchantment_desc]]</span></td>
 		<td class="row2" align="center">
 			<table class="table" align="center" width="100%" height="100%">
 				<tr>
-					<td align="center"><span class="gensmall">[[of:enchantment]]: {ENCHANTMENT_MIN} / {ENCHANTMENT_MAX}</td>
+					<td align="center"><span class="gensmall">[[of:enchantment]]: {enchantment_min} / {enchantment_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{ENCHANTMENT_BAR}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{ENCHANTMENT_BAR_EMPTY}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{enchantment_bar}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{enchantment_bar_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td class="row1" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{THIEF_IMG}" alt="[[of:thief]]"></td>
-		<td class="row1" align="center"><span class="gen">{THIEF}</span></td>
+		<td class="row1" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{thief_img}" alt="[[of:thief]]"></td>
+		<td class="row1" align="center"><span class="gen">{thief}</span></td>
 		<td class="row1" align="center"><span class="gensmall">[[of:thief_desc]]</span></td>
 		<td class="row1" align="center">
 			<table class="table" align="center" width="100%" height="100%">
 				<tr>
-					<td align="center"><span class="gensmall">[[of:thief]]: {THIEF_MIN} / {THIEF_MAX}</td>
+					<td align="center"><span class="gensmall">[[of:thief]]: {thief_min} / {thief_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{THIEF_BAR}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{THIEF_BAR_EMPTY}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{thief_bar}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{thief_bar_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
 				</tr>
 			</table>
 		</td>
