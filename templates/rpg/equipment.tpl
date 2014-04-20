@@ -1,24 +1,37 @@
 <!-- IF owner -->
 <h3>[[of:equip_title]]</h3>
-<!-- IF owner -->
+<!-- ENDIF owner -->
 
-<!-- BEGIN equipment_types -->
-<div class="well">
-	<h4>{equipment_types.name}</h4>
-	<select class="form-control">
-		<!-- BEGIN items -->
-		<option value="{equipment_types.items.user_item_id}">{equipment_types.items.item_name}</option>
-		<!-- END items -->
-	</select>
-</div>
-<!-- END equipment_types -->
+<form id="equipment">
+	<!-- BEGIN equipment_types -->
+	<div class="well">
+		<h4>{equipment_types.item_type_name}</h4>
+		<select class="form-control" name="{equipment_types.item_type_id}">
+			<!-- BEGIN items -->
+			<option value="{equipment_types.items.user_item_id}" <!-- IF equipment_types.items.equipped -->selected<!-- ENDIF equipment_types.items.equipped -->>
+				{equipment_types.items.item_name}
+			</option>
+			<!-- END items -->
+		</select>
+	</div>
+	<!-- END equipment_types -->
+</form>
 
 <!-- IF owner -->
 <button class="btn btn-lg btn-primary btn-block btn-equip">[[of:equip]]</button>
-<!-- IF owner -->
+<!-- ENDIF owner -->
 
 
 <script type="text/javascript">
+	$('.btn-equip').on('click', function(err) {
+		$.post('/api/openfantasy/equipment/equip', {
+			_csrf: $('#csrf_token').val(),
+			equipment: $('#equipment').serializeArray()
+		}, function(result) {
+			app['alert' + (!!result.status ? 'Success' : 'Error')](result.message);
+		});
+	});
+
 	$('document').ready(function() {
 		$('.rpg-header li').removeClass('active');
 		$('.rpg-header .equipment').addClass('active');
