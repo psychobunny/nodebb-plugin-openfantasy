@@ -44,7 +44,7 @@
 					<label for="character_desc">Character Biography</label>
 					<textarea class="form-control" id="character_desc" placeholder="Enter character's biography..."></textarea>
 				</div>
-				<button type="button" class="btn btn-primary btn-lg btn-block submit">Create Character</button>
+				<button class="btn btn-primary btn-lg btn-block btn-create">Create Character</button>
 			</form>
 		</div>
 	</div>
@@ -70,7 +70,7 @@ $('document').ready(function() {
 		$('.details').removeClass('hidden');
 	})
 
-	$('button.submit').on('click', function() {
+	$('.btn-create').on('click', function(ev) {
 		$.post('/api/openfantasy/character/create', {
 			'character_alignment': $('#character_alignment').val(),
 			'character_element': $('#character_element').val(),
@@ -80,8 +80,11 @@ $('document').ready(function() {
 			'character_desc': $('#character_desc').val(),
 			'_csrf': $('#csrf_token').val()
 		},function(data) {
-			ajaxify.go('character');
+			ajaxify.refresh();
 		});
+
+		ev.preventDefault();
+		return false;
 	});
 });
 </script>
@@ -270,7 +273,7 @@ $('document').ready(function() {
 		bootbox.confirm('<strong>[[of:character_delete_confirm]]</strong>', function(confirm) {
 			if (confirm) {
 				$.post('/api/openfantasy/character/delete', {'_csrf': $('#csrf_token').val()},function(data) {
-					ajaxify.go('character');
+					ajaxify.refresh();
 				});
 			}
 		});
