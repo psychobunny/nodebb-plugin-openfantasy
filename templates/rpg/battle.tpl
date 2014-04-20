@@ -6,6 +6,7 @@
 		</h4>
 	</div>
 	<!-- END equipment_types -->
+	<a href="/rpg/equipment" class="btn btn-lg btn-block btn-default btn-fight">[[of:equip_change]]</a>
 	<button class="btn btn-lg btn-block btn-primary btn-fight">[[of:battle_fight]]</button>
 <!-- ENDIF !battle_id -->
 
