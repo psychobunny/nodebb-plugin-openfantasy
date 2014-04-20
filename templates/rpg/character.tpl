@@ -90,8 +90,12 @@ $('document').ready(function() {
 </script>
 <!-- ENDIF !character -->
 
-
 <!-- IF character -->
+<div class="jumbotron character-jumbotron">
+	<h2>{character_name}</h2>
+	<small>{character_race} {character_class}</small>
+</div>
+
 <table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 	<tr>
 		<td align="center">
