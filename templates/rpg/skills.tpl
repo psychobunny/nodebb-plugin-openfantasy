@@ -3,10 +3,10 @@
 
 <table cellspacing="1" cellpadding="1" border="1" align="center" class="table" width="100%">
 	<tr>
-		<td class="row2" align="center" width="15%"><span class="gen"><b>[[of:img]]</b></span></td>
-		<td class="row2" align="center" width="10%"><span class="gen"><b>[[of:level]]</b></span></td>
-		<td class="row2" align="center" width="30%"><span class="gen"><b>[[of:desc]]</b></span></td>
-		<td class="row2" align="center" width="45%"><span class="gen"><b>[[of:progress]]</b></span></td>
+		<td class="row2" align="center" width="15%"><span class="gen"><b>[[of:races_image]]</b></span></td>
+		<td class="row2" align="center" width="10%"><span class="gen"><b>[[of:character_level]]</b></span></td>
+		<td class="row2" align="center" width="30%"><span class="gen"><b>[[of:races_desc]]</b></span></td>
+		<td class="row2" align="center" width="45%"><span class="gen"><b>[[of:character_progress]]</b></span></td>
 	</tr>
 	<tr>
 		<td class="row1" align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/skills/{MINING_IMG}" alt="[[of:mining]]"></td>
