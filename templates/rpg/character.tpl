@@ -107,15 +107,15 @@ $('document').ready(function() {
 				</tr>
 				<tr>
 					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_race]]:</td>
-					<td align="center"><span><img src="{race_img}" alt="{character_race}"><br />{character_race]</span></td>
+					<td align="center"><span><img src="{race_img}" alt="{character_race}"><br />{character_race}</span></td>
 				</tr>
 				<tr>
 					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_element]]:</td>
-					<td align="center"><span><img src="{element_img}" alt="{character_element}"><br />{character_element]</span></td>
+					<td align="center"><span><img src="{element_img}" alt="{character_element}"><br />{character_element}</span></td>
 				</tr>
 				<tr>
 					<td class="row1" align="center" width="40%"><span class="gen">[[of:character_alignment]]:</td>
-					<td align="center"><span><img src="{alignment_img}" alt="{character_alignment}"><br />{character_alignment]</span></td>
+					<td align="center"><span><img src="{alignment_img}" alt="{character_alignment}"><br />{character_alignment}</span></td>
 				</tr>
 			</table>
 			<!-- begin owner -->
