@@ -118,18 +118,18 @@ $('document').ready(function() {
 					<td align="center"><span><img src="{alignment_img}" alt="{character_alignment}"><br />{character_alignment}</span></td>
 				</tr>
 			</table>
-			<!-- begin owner -->
+			<!-- IF owner -->
 			<table class="table" cellspacing="1" cellpadding="1" border="1" align="center" width="100%">
 				<tr>
 					<td align="center" ><button class="form-control bio_edit">[[of:character_edit]]</button></td>
 				</tr>
-				<!-- begin delete -->
+				<!-- IF deletable -->
 				<tr>
 					<td align="center" ><button class="form-control btn-danger delete">[[of:character_delete]]</button></td>
 				</tr>
-				<!-- end delete -->
+				<!-- ENDIF deletable -->
 			</table>
-			<!-- end owner -->
+			<!-- ENDIF owner -->
 		</span></td>
 
 		<td class="row1" align="center">
