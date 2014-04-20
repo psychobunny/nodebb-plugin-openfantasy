@@ -14,8 +14,8 @@
 	</tr>
 </table>
 <div style="height: 75px;">
-	<div class="progress hide" style="height: 35px">
-	  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+	<div class="progress progress-striped active hide" style="height: 35px">
+	  <div class="progress-bar progress-bar-warning"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
 	</div>
 	<div class="alert alert-info message">
 		[[of:forge_mining_explain]]
@@ -54,7 +54,7 @@
 			progress.addClass('hide');
 			bar.css('width', '0%');
 			$('.message').html('Success! You found a rock.').removeClass('hide');
-		}, cooldown + 750);
+		}, cooldown + 1000);
 	});
 
 	$('document').ready(function() {
