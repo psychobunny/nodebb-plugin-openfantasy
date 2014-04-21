@@ -104,9 +104,9 @@
 	<tr>
 		<td align="right" class="row2" width="50%">
 			<select class="form-control" id="weapon">
-			<!-- BEGIN weapons -->
-				<option value="{weapons.user_item_id}">{weapons.item_id} ({weapons.item_duration} / {weapons.item_duration_max})</option>
-			<!-- END weapons -->
+			<!-- BEGIN wieldable -->
+				<option value="{items.wieldable.user_item_id}">{items.wieldable.battle_description}</option>
+			<!-- END wieldable -->
 			</select>
 		</td>
 		<td align="left" class="row2" width="50%"><button class="btn btn-primary btn-attack btn-block">[[of:attack_opponent]]</button></td>
@@ -114,9 +114,9 @@
 	<tr>
 		<td align="right" class="row1" width="50%">
 			<select class="form-control" id="spell">
-			<!-- BEGIN spell -->
-				<option value="{spell.user_item_id}" >{spell.item_id} ({spell.item_duration} / {spell.item_duration_max})</option>
-			<!-- END spell -->
+			<!-- BEGIN castable -->
+				<option value="{items.castable.user_item_id}">{items.castable.battle_description}</option>
+			<!-- END castable -->
 			</select>
 		</td>
 		<td align="left" class="row1" width="50%"><button class="btn btn-primary btn-spell btn-block">[[of:spell_opponent]]</button></td>
@@ -124,9 +124,9 @@
 	</tr>
 		<td align="right" class="row2" width="50%">
 			<select class="form-control" id="potion">
-			<!-- BEGIN potion -->
-				<option value="{potion.user_item_id}">{potion.item_id} ({potion.item_duration} / {potion.item_duration_max})</option>
-			<!-- END potion -->
+			<!-- BEGIN usable -->
+				<option value="{items.usable.user_item_id}">{items.usable.battle_description}</option>
+			<!-- END usable -->
 			</select>
 		</td>
 		<td align="left" class="row2" width="50%"><button class="btn btn-primary btn-potion btn-block">[[of:potion_opponent]]</button></td>
