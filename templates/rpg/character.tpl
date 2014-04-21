@@ -193,8 +193,8 @@ $('document').ready(function() {
                     <td align="center" class="row1" colspan="6">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/au.gif" alt="[[of:character_points]]"></td>
-                    <td align="center" width="35%"><span>[[of:character_points]]</span></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/au.gif" alt="{l_points}"></td>
+                    <td align="center" width="35%"><span>{l_points}</span></td>
                     <td align="center" width="10%"><span>{character_points}</span></td>
                     <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/dex.gif" alt="[[of:character_dexterity]]"></td>
                     <td align="center" width="35%"><span>[[of:character_dexterity]]</span></td>
