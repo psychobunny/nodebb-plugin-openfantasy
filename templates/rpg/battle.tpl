@@ -242,7 +242,7 @@
 		disableButtonsIfNoItem();
 		$('.opponent_img').attr('src', $('.opponent_img').attr('src') + '?t=' + (new Date).getTime());
 
-		$('input, button, select').prop('disabled', true)
+		//$('input, button, select').prop('disabled', true)
 
 		var events = result.events,
 			eventsEl = $('#events'),
