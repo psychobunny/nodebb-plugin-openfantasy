@@ -150,6 +150,8 @@
 		}, function(result) {
 			ajaxify.refresh();
 		});
+
+		return false;
 	});
 
 	$('.btn-flee').on('click', function() {
@@ -159,6 +161,8 @@
 		}, function(result) {
 			ajaxify.refresh();
 		});
+
+		return false;
 	});
 
 	$('.btn-defend').on('click', function() {
@@ -168,6 +172,8 @@
 		}, function(result) {
 			ajaxify.refresh();
 		});
+
+		return false;
 	});
 
 	$('.btn-potion').on('click', function() {
@@ -178,6 +184,8 @@
 		}, function(result) {
 			ajaxify.refresh();
 		});
+
+		return false;
 	});
 
 	$('.btn-spell').on('click', function() {
@@ -188,6 +196,8 @@
 		}, function(result) {
 			ajaxify.refresh();
 		});
+
+		return false;
 	});
 
 	$('.btn-attack').on('click', function() {
@@ -198,6 +208,8 @@
 		}, function(result) {
 			ajaxify.refresh();
 		});
+
+		return false;
 	});
 
 	$('document').ready(function() {
