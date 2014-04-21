@@ -24,6 +24,10 @@
 You have <strong>{character_points}</strong> {l_points}.
 </div>
 
+<!-- IF in_battle -->
+<div class="alert alert-danger">[[of:battle_progress]]</div>
+<!-- ENDIF in_battle -->
+
 <!-- IF view_store_list -->
 <table width="100%" cellpadding="3" cellspacing="1" border="0" class="table">
 	<tr> 
