@@ -13,7 +13,6 @@
 <table width="100%" class="table" align="center" valign="middle">
 	<tr>
 		<th align="center" width="100%" valign="middle" colspan="3" style="text-align: center; background: url(../plugins/nodebb-plugin-openfantasy/images/backgrounds/battle_bgnd_1.gif); background-size: contain;">
-			<img src="{battle_opponent_img}" /><br /><br />
 			<div style="margin-left: auto; margin-right: auto; width: 130px;">
 				<strong style="color: white; text-shadow: 1px 1px #111;">{battle_opponent_name}</strong><br />
 				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
@@ -24,7 +23,8 @@
 				  <div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
 				  </div>
 				</div>
-			</div>
+			</div><br />
+			<img src="{battle_opponent_img}" />
 		</th>
 	</tr>
 	<tr>
