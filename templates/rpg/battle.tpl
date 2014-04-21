@@ -10,56 +10,62 @@
 
 <!-- IF battle_id -->
 <form>
-<table width="100%" class="forumline" align="center" valign="middle">
+<table width="100%" class="table" align="center" valign="middle">
 	<tr>
-		<th align="center" width="100%" valign="middle" colspan="3">
-			{character_name}&nbsp;vs&nbsp;{battle_opponent_name}
+		<th align="center" width="100%" valign="middle" colspan="3" style="text-align: center; background: url(../plugins/nodebb-plugin-openfantasy/images/backgrounds/battle_bgnd_1.gif); background-size: contain;">
+			<img src="{battle_opponent_img}" /><br /><br />
+			<div style="margin-left: auto; margin-right: auto; width: 130px;">
+				<strong style="color: white; text-shadow: 1px 1px #111;">{battle_opponent_name}</strong><br />
+				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
+				  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+				  </div>
+				</div>
+				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
+				  <div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+				  </div>
+				</div>
+			</div>
 		</th>
 	</tr>
 	<tr>
-		<td class="row2" align="center" width="40%" valign="top">
-			<table width="100%">
-				<tr>
-					<td colspan="3" align="center" valign="top" height="25"><b><span class="gen">{character_name}</span></b></td>
-				</tr>
-				<tr>
-					<td align="center"><span class="gensmall">[[of:character_health]] {battle_challenger_hp} / {battle_challenger_hp_max}</td>
-					<td align="center" rowspan="4" colspan="2" height="75%">{avatar_img}&nbsp;</td>
-				</tr>
-				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_middle.gif" width="{hp_width}" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{hp_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_end.gif" width="6" height="13" /></td>
-				</tr>
-				<tr>
-					<td align="center"><span class="gensmall">[[of:character_magic]] {battle_challenger_mp} / {battle_challenger_mp_max}</td>
-				</tr>
-				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_middle.gif" width="{mp_width}" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{mp_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
-				</tr>
-			</table></td>
-		<td class="row1" align="center" width="20%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/vs.gif" /></td>
-		<td class="row2" align="center" width="40%" valign="top">
-			<table width="100%">
-				<tr>
-					<td colspan="3" align="center" height="25" valign="top"><b><span class="gen">{battle_opponent_name}</span></b></td>
-				</tr>
-				<tr>
-					<td align="center" rowspan="4" colspan="2" height="75%"><img src="{battle_opponent_img}" /></td>
-					<td align="center"><span class="gensmall">[[of:character_health]] {battle_opponent_hp} / {battle_opponent_hp_max}</td>
-				</tr>
-				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_middle.gif" width="{monster_hp_width}" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{monster_hp_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_end.gif" width="6" height="13" /></td>
-				</tr>
-				<tr>
-					<td align="center"><span class="gensmall">[[of:character_magic]] {battle_opponent_mp} / {battle_opponent_mp_max}</td>
-				</tr>
-				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_middle.gif" width="{monster_mp_width}" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{monster_mp_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
-				</tr>
-			</table></td>
+		<td colspan="3" align="center" valign="top" height="25">
+			<strong>{character_name}</span>
+		</td>
 	</tr>
 	<tr>
+		<td colspan="3">
+			<div class="row">
+				<div class="col-xs-3">
+					<span><strong>[[of:character_health]]</strong>: {battle_challenger_hp} / {battle_challenger_hp_max}</span>
+				</div>
+				<div class="col-xs-9">
+					<div class="progress progress-striped active" style="margin: 0">
+					  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+					  </div>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<div class="row">
+				<div class="col-xs-3">
+					<span><strong>[[of:character_magic]]</strong>: {battle_challenger_mp} / {battle_challenger_mp_max}</span>
+				</div>
+				<div class="col-xs-9">
+					<div class="progress progress-striped active" style="margin: 0">
+					  <div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+					  </div>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<!-- I always thought it was weird that ADR let you see yours vs monster stats
+	<tr>
 		<td class="row1" width ="40%">
-		<table border="1" cellpadding="3" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" class="forumline">
+		<table border="1" cellpadding="3" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" class="table">
 			<th width="100%" valign="top" colspan="2" style="border-style: solid; border-width: 1; padding-left: 4; padding-right: 4; padding-top: 1; padding-bottom: 1" bordercolor="#C0C0C0">
 				[[of:battle_attributes]]:
 			</th>
@@ -78,9 +84,8 @@
               </tr>
             </table>
         </td>
-		<td class="row1">&nbsp;</td>
 		<td class="row1" width ="40%">
-			<table border="1" cellpadding="3" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2" class="forumline">
+			<table border="1" cellpadding="3" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2" class="table">
 			<th width="100%" valign="top" colspan="2" style="border-style: solid; border-width: 1; padding-left: 4; padding-right: 4; padding-top: 1; padding-bottom: 1" bordercolor="#C0C0C0">
 				[[of:battle_attributes]]:
 			</th>
@@ -102,30 +107,42 @@
 	<tr>
 		{battle_text}
 	</tr>
-</table>
-<br clear="all" />
-
-<table cellspacing="0" cellpadding="3" border="1" align="center" class="forumline" width="80%">
-	</tr>
-		<th align="center" colspan="2" >[[of:actions_opponent]]</th>
-	</tr>
-	</tr>
-		<td align="right" class="row2" width="50%">{attack}</td>
-		<td align="left" class="row2" width="50%"><input type="submit" style="width: 125" value="[[of:attack_opponent]]" name="attack" class="mainoption" /></td>
-	</tr>
-	</tr>
-		<td align="right" class="row1" width="50%">{spell}</td>
-		<td align="left" class="row1" width="50%"><input type="submit" style="width: 125" value="[[of:spell_opponent]]" name="spell" class="mainoption" /></td>
+	-->
+	<tr>
+		<td align="right" class="row2" width="50%">
+			<select class="form-control">
+			<!-- BEGIN weapons -->
+				<option value="{weapons.user_item_id}">{weapons.item_id} ({weapons.item_duration} / {weapons.item_duration_max})</option>
+			<!-- END weapons -->
+			</select>
+		</td>
+		<td align="left" class="row2" width="50%"><button class="btn btn-primary btn-attack btn-block">[[of:attack_opponent]]</button></td>
 	</tr>
 	</tr>
-		<td align="right" class="row2" width="50%">{potion}</td>
-		<td align="left" class="row2" width="50%"><input type="submit" style="width: 125" value="[[of:potion_opponent]]" name="potion" class="mainoption" /></td>
+		<td align="right" class="row1" width="50%">
+			<select class="form-control">
+			<!-- BEGIN spell -->
+				<option value="{spell.user_item_id}">{spell.item_id} ({spell.item_duration} / {spell.item_duration_max})</option>
+			<!-- END spell -->
+			</select>
+		</td>
+		<td align="left" class="row1" width="50%"><button class="btn btn-primary btn-spell btn-block">[[of:spell_opponent]]</button></td>
 	</tr>
 	</tr>
-		<td align="center" class="row1" width="100%" colspan="2" ><input type="submit" style="width: 125" value="[[of:defend_opponent]]" name="defend" class="mainoption" /></td>
+		<td align="right" class="row2" width="50%">
+			<select class="form-control">
+			<!-- BEGIN potion -->
+				<option value="{potion.user_item_id}">{potion.item_id} ({potion.item_duration} / {potion.item_duration_max})</option>
+			<!-- END potion -->
+			</select>
+		</td>
+		<td align="left" class="row2" width="50%"><button class="btn btn-primary btn-potion btn-block">[[of:potion_opponent]]</button></td>
 	</tr>
 	</tr>
-		<td align="center" class="row2" width="100%" colspan="2" ><input type="submit" style="width: 125" value="[[of:flee_opponent]]" name="flee" class="mainoption" /></td>
+		<td align="center" class="row1" width="100%" colspan="2" ><button class="btn btn-info btn-defend btn-block">[[of:defend_opponent]]</button></td>
+	</tr>
+	</tr>
+		<td align="center" class="row2" width="100%" colspan="2" ><button class="btn btn-danger btn-flee btn-block">[[of:flee_opponent]]</button></td>
 	</tr>
 </table>
 </form>
