@@ -123,13 +123,13 @@
 	</tr>
 	</tr>
 		<td align="right" class="row2" width="50%">
-			<select class="form-control" id="potion">
+			<select class="form-control" id="item">
 			<!-- BEGIN usable -->
 				<option value="{items.usable.user_item_id}">{items.usable.battle_description}</option>
 			<!-- END usable -->
 			</select>
 		</td>
-		<td align="left" class="row2" width="50%"><button class="btn btn-primary btn-potion btn-block">[[of:potion_opponent]]</button></td>
+		<td align="left" class="row2" width="50%"><button class="btn btn-primary btn-item btn-block">[[of:item_opponent]]</button></td>
 	<tr>
 	</tr>
 		<td align="center" class="row1" width="100%" colspan="2" ><button class="btn btn-info btn-defend btn-block">[[of:defend_opponent]]</button></td>
@@ -176,10 +176,10 @@
 		return false;
 	});
 
-	$('.btn-potion').on('click', function() {
+	$('.btn-item').on('click', function() {
 		$.post('/api/openfantasy/battle/move', {
-			move: 'potion',
-			mid: $('#potion').val(),
+			move: 'item',
+			mid: $('#item').val(),
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
 			ajaxify.refresh();
@@ -212,7 +212,21 @@
 		return false;
 	});
 
+	///*initiative, challengerDamage, opponentDamage, or eventArray?*/
+	function turn() {
+		disableButtonsIfNoItem();
+	}
+
+	function disableButtonsIfNoItem() {
+		$('.btn-spell').prop('disabled', $('#spell').val() === '0');
+		$('.btn-item').prop('disabled', $('#item').val() === '0');
+	}
+
+	$('#spell').on('change', disableButtonsIfNoItem);
+	$('#item').on('change', disableButtonsIfNoItem);
+
 	$('document').ready(function() {
+		disableButtonsIfNoItem();
 		$('.rpg-header li').removeClass('active');
 		$('.rpg-header .battle').addClass('active');
 	});

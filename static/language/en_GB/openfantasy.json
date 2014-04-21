@@ -573,6 +573,7 @@
 	"spell_opponent": "Use a Magic Item",
 	"actions_opponent": "Actions",
 	"potion_opponent": "Use a Potion",
+	"item_opponent": "Use an Item",
 	"battle_no_weapon": "Bare Fists",
 	"battle_no_spell": "No Magic Item",
 	"battle_no_potion": "No Potion",
