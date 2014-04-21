@@ -10,9 +10,9 @@
 	</tr>
 	<!-- BEGIN skills -->
 	<tr>
-		<td class="row1" align="center"><img src="{skills.skill_img}" alt="{skills.skill_name}"></td>
-		<td class="row1" align="center"><span class="gen">{skills.skill_level}</span></td>
-		<td class="row1" align="center"><span class="gensmall">{skills.skill_desc}</span></td>
+		<td class="row1" align="center"><div class="well"><img src="{skills.skill_img}" alt="{skills.skill_name}"></div></td>
+		<td class="row1" align="center">{skills.skill_level}</td>
+		<td class="row1" align="center">{skills.skill_desc}</td>
 		<td class="row1" align="center">
 			<table class="table" align="center" width="100%" height="100%">
 				<tr>
