@@ -228,10 +228,19 @@
 		ajaxify.refresh();
 		return false;
 	});
+	try {
+		var battle_text = JSON.parse('{battle_text}');
+		if (battle_text) {
+			turn(battle_text);
+		}
+	} catch (e) {}
+	
+
 
 	///*initiative, challengerDamage, opponentDamage, or eventArray?*/
 	function turn(result) {
 		disableButtonsIfNoItem();
+
 
 		$('input, button, select').prop('disabled', true)
 
