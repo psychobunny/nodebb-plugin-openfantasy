@@ -13,7 +13,7 @@
 <table width="100%" class="forumline" align="center" valign="middle">
 	<tr>
 		<th align="center" width="100%" valign="middle" colspan="3">
-			{character_name}&nbsp;vs&nbsp;{monster_name}
+			{character_name}&nbsp;vs&nbsp;{battle_opponent_name}
 		</th>
 	</tr>
 	<tr>
@@ -23,37 +23,37 @@
 					<td colspan="3" align="center" valign="top" height="25"><b><span class="gen">{character_name}</span></b></td>
 				</tr>
 				<tr>
-					<td align="center"><span class="gensmall">[[of:character_health]] {HP} / {HP_MAX}</td>
-					<td align="center" rowspan="4" colspan="2" height="75%">{AVATAR_IMG}&nbsp;</td>
+					<td align="center"><span class="gensmall">[[of:character_health]] {battle_challenger_hp} / {battle_challenger_hp_max}</td>
+					<td align="center" rowspan="4" colspan="2" height="75%">{avatar_img}&nbsp;</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="adr/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="adr/images/misc/bar_red_middle.gif" width="{HP_WIDTH}" height="13" /><img src="adr/images/misc/bar_emp.gif" width="{HP_EMPTY}" height="13" border="0" /><img src="adr/images/misc/bar_red_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_middle.gif" width="{hp_width}" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{hp_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_end.gif" width="6" height="13" /></td>
 				</tr>
 				<tr>
-					<td align="center"><span class="gensmall">[[of:character_magic]] {MP} / {MP_MAX}</td>
+					<td align="center"><span class="gensmall">[[of:character_magic]] {battle_challenger_mp} / {battle_challenger_mp_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="adr/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="adr/images/misc/bar_blue_middle.gif" width="{MP_WIDTH}" height="13" /><img src="adr/images/misc/bar_emp.gif" width="{MP_EMPTY}" height="13" border="0" /><img src="adr/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_middle.gif" width="{mp_width}" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{mp_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
 				</tr>
 			</table></td>
-		<td class="row1" align="center" width="20%"><img src="./adr/images/misc/vs.gif" /></td>
+		<td class="row1" align="center" width="20%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/vs.gif" /></td>
 		<td class="row2" align="center" width="40%" valign="top">
 			<table width="100%">
 				<tr>
-					<td colspan="3" align="center" height="25" valign="top"><b><span class="gen">{MONSTER_NAME}</span></b></td>
+					<td colspan="3" align="center" height="25" valign="top"><b><span class="gen">{battle_opponent_name}</span></b></td>
 				</tr>
 				<tr>
-					<td align="center" rowspan="4" colspan="2" height="75%"><img src="./adr/images/monsters/{MONSTER_IMG}" /></td>
-					<td align="center"><span class="gensmall">[[of:character_health]] {MONSTER_HP} / {MONSTER_HP_MAX}</td>
+					<td align="center" rowspan="4" colspan="2" height="75%"><img src="{battle_opponent_img}" /></td>
+					<td align="center"><span class="gensmall">[[of:character_health]] {battle_opponent_hp} / {battle_opponent_hp_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="adr/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="adr/images/misc/bar_red_middle.gif" width="{MONSTER_HP_WIDTH}" height="13" /><img src="adr/images/misc/bar_emp.gif" width="{MONSTER_HP_EMPTY}" height="13" border="0" /><img src="adr/images/misc/bar_red_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_middle.gif" width="{monster_hp_width}" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{monster_hp_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_end.gif" width="6" height="13" /></td>
 				</tr>
 				<tr>
-					<td align="center"><span class="gensmall">[[of:character_magic]] {MONSTER_MP} / {MONSTER_MP_MAX}</td>
+					<td align="center"><span class="gensmall">[[of:character_magic]] {battle_opponent_mp} / {battle_opponent_mp_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="adr/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="adr/images/misc/bar_blue_middle.gif" width="{MONSTER_MP_WIDTH}" height="13" /><img src="adr/images/misc/bar_emp.gif" width="{MONSTER_MP_EMPTY}" height="13" border="0" /><img src="adr/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_middle.gif" width="{monster_mp_width}" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{monster_mp_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
 				</tr>
 			</table></td>
 	</tr>
@@ -65,15 +65,15 @@
 			</th>
               <tr>
                 <td class="row1" width="50%" valign="top">
-			<span class="gensmall">&nbsp;<b>[[of:battle_phy_att]]:</b> {ATT}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_phy_def]]:</b> {DEF}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_mag_att]]:</b> {M_ATT}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_mag_def]]:</b> {M_DEF}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_phy_att]]:</b> {battle_challenger_att}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_phy_def]]:</b> {battle_challenger_def}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_mag_att]]:</b> {battle_challenger_magic_attack}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_mag_def]]:</b> {battle_challenger_magic_resistance}</span><br />
 			</td>
                 <td class="row1" width="50%" valign="top">
-			<span class="gensmall">&nbsp;<b>[[of:battle_alignment]]:</b> {ALIGNMENT}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_element]]:</b> {ELEMENT}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_class]]:</b> {CLASS}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_alignment]]:</b> {battle_challenger_alignment}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_element]]:</b> {battle_challenger_element}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_class]]:</b> {battle_challenger_class}</span><br />
 			</td>
               </tr>
             </table>
@@ -86,23 +86,21 @@
 			</th>
               <tr>
                 <td class="row1" width="50%" valign="top">
-			<span class="gensmall">&nbsp;<b>[[of:battle_phy_att]]:</b> {MONSTER_ATT}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_phy_def]]:</b> {MONSTER_DEF}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_mag_att]]:</b> {MONSTER_M_ATT}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_mag_def]]:</b> {MONSTER_M_DEF}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_phy_att]]:</b> {battle_opponent_att}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_phy_def]]:</b> {battle_opponent_def}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_mag_att]]:</b> {battle_opponent_magic_att}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_mag_def]]:</b> {battle_opponent_magic_resistance}</span><br />
 			</td>
                 <td class="row1" width="50%" valign="top">
-			<span class="gensmall">&nbsp;<b>[[of:battle_alignment]]:</b> {MONSTER_ALIGNMENT}</span><br />
-			<span class="gensmall">&nbsp;<b>[[of:battle_element]]:</b> {MONSTER_ELEMENT}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_alignment]]:</b> {battle_opponent_alignment}</span><br />
+			<span class="gensmall">&nbsp;<b>[[of:battle_element]]:</b> {battle_opponent_element}</span><br />
 			</td>
               </tr>
               </table>
         </td>
 	</tr>
 	<tr>
-		<td align="center" class="row1" valign="top" colspan="3">
-			<iframe width="100%" height="200" left="0" frameborder=0 src="{S_CHATBOX}" class="row1"></iframe>
-		</td>
+		{battle_text}
 	</tr>
 </table>
 <br clear="all" />
@@ -112,16 +110,16 @@
 		<th align="center" colspan="2" >[[of:actions_opponent]]</th>
 	</tr>
 	</tr>
-		<td align="right" class="row2" width="50%" >{ATTACK}&nbsp;&nbsp;&nbsp;</td>
-		<td align="left" class="row2" width="50%" >&nbsp;&nbsp;&nbsp;<input type="submit" style="width: 125" value="[[of:attack_opponent]]" name="attack" class="mainoption" /></td>
+		<td align="right" class="row2" width="50%">{attack}</td>
+		<td align="left" class="row2" width="50%"><input type="submit" style="width: 125" value="[[of:attack_opponent]]" name="attack" class="mainoption" /></td>
 	</tr>
 	</tr>
-		<td align="right" class="row1" width="50%" >{SPELL}&nbsp;&nbsp;&nbsp;</td>
-		<td align="left" class="row1" width="50%" >&nbsp;&nbsp;&nbsp;<input type="submit" style="width: 125" value="[[of:spell_opponent]]" name="spell" class="mainoption" /></td>
+		<td align="right" class="row1" width="50%">{spell}</td>
+		<td align="left" class="row1" width="50%"><input type="submit" style="width: 125" value="[[of:spell_opponent]]" name="spell" class="mainoption" /></td>
 	</tr>
 	</tr>
-		<td align="right" class="row2" width="50%" >{POTION}&nbsp;&nbsp;&nbsp;</td>
-		<td align="left" class="row2" width="50%" >&nbsp;&nbsp;&nbsp;<input type="submit" style="width: 125" value="[[of:potion_opponent]]" name="potion" class="mainoption" /></td>
+		<td align="right" class="row2" width="50%">{potion}</td>
+		<td align="left" class="row2" width="50%"><input type="submit" style="width: 125" value="[[of:potion_opponent]]" name="potion" class="mainoption" /></td>
 	</tr>
 	</tr>
 		<td align="center" class="row1" width="100%" colspan="2" ><input type="submit" style="width: 125" value="[[of:defend_opponent]]" name="defend" class="mainoption" /></td>
