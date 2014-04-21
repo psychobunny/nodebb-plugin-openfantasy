@@ -28,36 +28,29 @@
 		</th>
 	</tr>
 	<tr>
-		<td colspan="3" align="center" valign="top" height="25">
-			<strong>{character_name}</span>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="3">
-			<div class="row">
-				<div class="col-xs-3">
-					<span><strong>[[of:character_health]]</strong>: {battle_challenger_hp} / {battle_challenger_hp_max}</span>
+		<td colspan="3" align="center" valign="top" height="60" style="background: #333; border: 0">
+			<img src="../plugins/nodebb-plugin-openfantasy/images/misc/vs.gif" style="width: 50px; height: 50px; margin-bottom: 5px;" />
+			<div style="margin-left: auto; margin-right: auto; width: 130px;">
+				<strong style="color: white; text-shadow: 1px 1px #111;">{character_name}</strong><br />
+				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
+				  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+				  </div>
 				</div>
-				<div class="col-xs-9">
-					<div class="progress progress-striped active" style="margin: 0">
-					  <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-					  </div>
-					</div>
+				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
+				  <div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+				  </div>
 				</div>
 			</div>
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="3" align="center">
 			<div class="row">
-				<div class="col-xs-3">
-					<span><strong>[[of:character_magic]]</strong>: {battle_challenger_mp} / {battle_challenger_mp_max}</span>
+				<div class="col-xs-6">
+					<span><strong>[[of:character_health]]</strong>: {battle_challenger_hp} / {battle_challenger_hp_max}</span>
 				</div>
-				<div class="col-xs-9">
-					<div class="progress progress-striped active" style="margin: 0">
-					  <div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-					  </div>
-					</div>
+				<div class="col-xs-6">
+					<span><strong>[[of:character_magic]]</strong>: {battle_challenger_mp} / {battle_challenger_mp_max}</span>
 				</div>
 			</div>
 		</td>
@@ -118,11 +111,11 @@
 		</td>
 		<td align="left" class="row2" width="50%"><button class="btn btn-primary btn-attack btn-block">[[of:attack_opponent]]</button></td>
 	</tr>
-	</tr>
+	<tr>
 		<td align="right" class="row1" width="50%">
 			<select class="form-control">
 			<!-- BEGIN spell -->
-				<option value="{spell.user_item_id}">{spell.item_id} ({spell.item_duration} / {spell.item_duration_max})</option>
+				<option value="{spell.user_item_id}" >{spell.item_id} ({spell.item_duration} / {spell.item_duration_max})</option>
 			<!-- END spell -->
 			</select>
 		</td>
@@ -137,11 +130,11 @@
 			</select>
 		</td>
 		<td align="left" class="row2" width="50%"><button class="btn btn-primary btn-potion btn-block">[[of:potion_opponent]]</button></td>
-	</tr>
+	<tr>
 	</tr>
 		<td align="center" class="row1" width="100%" colspan="2" ><button class="btn btn-info btn-defend btn-block">[[of:defend_opponent]]</button></td>
 	</tr>
-	</tr>
+	<tr>
 		<td align="center" class="row2" width="100%" colspan="2" ><button class="btn btn-danger btn-flee btn-block">[[of:flee_opponent]]</button></td>
 	</tr>
 </table>
