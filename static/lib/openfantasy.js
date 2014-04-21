@@ -39,15 +39,17 @@ var openfantasy = openfantasy || {
 			});
 		});
 
-		$(window).on('action:ajaxify.contentLoaded', function(url) {
+		$(window).on('action:ajaxify.contentLoaded', function(ev, data) {
 			var content = $('#content');
 
-			if (!content.children('.openfantasy').length) {
-				var html = openfantasy.templates.header + content.html() + openfantasy.templates.footer;
-				content.html(html);
-			}
+			if (data.url.match(/rpg\//)) {
+				if (!content.children('.openfantasy').length) {
+					var html = openfantasy.templates.header + content.html() + openfantasy.templates.footer;
+					content.html(html);
+				}
 
-			getCash();
+				getCash();
+			}
 		});
 
 		getCash();
