@@ -29,6 +29,9 @@
 	</tr>
 	<tr>
 		<td colspan="3" align="center" valign="top" height="60" style="background: #333; border: 0">
+			<p style="color: white; text-shadow: 1px 1px #111;">
+				<span>[[of:battle_flee_fail, <strong>{character_name}</strong>]]</span>
+			</p>
 			<img src="../plugins/nodebb-plugin-openfantasy/images/misc/vs.gif" style="width: 50px; height: 50px; margin-bottom: 5px;" />
 			<div style="margin-left: auto; margin-right: auto; width: 130px;">
 				<strong style="color: white; text-shadow: 1px 1px #111;">{character_name}</strong><br />
@@ -105,7 +108,7 @@
 		<td align="right" class="row2" width="50%">
 			<select class="form-control" id="weapon">
 			<!-- BEGIN wieldable -->
-				<option value="{items.wieldable.user_item_id}">{items.wieldable.battle_description}</option>
+				<option data-user-item-id="{items.wieldable.user_item_id}" value="{items.wieldable.user_item_id}">{items.wieldable.battle_description}</option>
 			<!-- END wieldable -->
 			</select>
 		</td>
@@ -115,7 +118,7 @@
 		<td align="right" class="row1" width="50%">
 			<select class="form-control" id="spell">
 			<!-- BEGIN castable -->
-				<option value="{items.castable.user_item_id}">{items.castable.battle_description}</option>
+				<option data-user-item-id="{items.castable.user_item_id}" value="{items.castable.user_item_id}">{items.castable.battle_description}</option>
 			<!-- END castable -->
 			</select>
 		</td>
@@ -125,7 +128,7 @@
 		<td align="right" class="row2" width="50%">
 			<select class="form-control" id="item">
 			<!-- BEGIN usable -->
-				<option value="{items.usable.user_item_id}">{items.usable.battle_description}</option>
+				<option data-user-item-id="{items.usable.user_item_id}" value="{items.usable.user_item_id}">{items.usable.battle_description}</option>
 			<!-- END usable -->
 			</select>
 		</td>
@@ -159,7 +162,7 @@
 			move: 'flee',
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			ajaxify.refresh();
+			turn();
 		});
 
 		return false;
@@ -170,43 +173,49 @@
 			move: 'defend',
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			ajaxify.refresh();
+			turn();
 		});
 
 		return false;
 	});
 
 	$('.btn-item').on('click', function() {
+		useItem('item');
+
 		$.post('/api/openfantasy/battle/move', {
 			move: 'item',
 			mid: $('#item').val(),
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			ajaxify.refresh();
+			turn();
 		});
 
 		return false;
 	});
 
 	$('.btn-spell').on('click', function() {
+		useItem('spell');
+		
 		$.post('/api/openfantasy/battle/move', {
 			move: 'spell',
 			mid: $('#spell').val(),
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			ajaxify.refresh();
+			turn();
 		});
 
 		return false;
 	});
 
 	$('.btn-attack').on('click', function() {
+		useItem('attack');
+
 		$.post('/api/openfantasy/battle/move', {
 			move: 'attack',
 			mid: $('#weapon').val(),
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			ajaxify.refresh();
+			turn();
 		});
 
 		return false;
@@ -220,6 +229,30 @@
 	function disableButtonsIfNoItem() {
 		$('.btn-spell').prop('disabled', $('#spell').val() === '0');
 		$('.btn-item').prop('disabled', $('#item').val() === '0');
+	}
+
+	function useItem(type) {
+		var option = $('[data-user-item-id="' + $('#' + type).val() + '"]'),
+			duration = (/: ([0-9]+) \//).exec(option.html());
+
+		if (duration && duration[1]) {
+			var select = option.parent();
+
+			duration = parseInt(duration[1], 10) - 1;
+			option.html(option.html().replace(/: ([0-9]+) \//, ': ' + duration + ' /'));	
+			
+			if (duration <= 0) {
+				option.remove();
+
+				if (!select.children().length) {
+					if (type === 'spell') {
+						select.append('<option data-user-item-id="0" value="0">[[of:battle_no_spell]]</option>');
+					} else if (type == 'item') {
+						select.append('<option data-user-item-id="0" value="0">[[of:battle_no_item]]</option>');
+					}
+				}
+			}
+		}
 	}
 
 	$('#spell').on('change', disableButtonsIfNoItem);

@@ -631,7 +631,7 @@
 	"battle_attack_failure": "%s attempts to strike %s with a %s but misses the attack!",
 	"battle_attack_bare": "%s inflicts %s damage upon %s with his bare fists!",
 	"battle_attack_bare_fail": "%s attempts to strike %s with his bare fists but misses!",
-	"battle_flee_fail": "%s attempts to flee from battle but fails!",
+	"battle_flee_fail": "%1 attempts to flee from battle but fails!",
 	"battle_defend": "%s defends against %s attack!",
 	"battle_check": "Incorrect MP cost check. Please contact your ADR administrator",
 	"battle_msg_check": "'s turn",
