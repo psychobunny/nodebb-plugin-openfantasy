@@ -1,9 +1,7 @@
 <!-- IF !battle_id -->
 	<!-- BEGIN equipment_types -->
 	<div class="well">
-		<h4>{equipment_types.item_type_name}
-			<small><!-- BEGIN items --><!-- IF equipment_types.items.equipped -->{equipment_types.items.item_name}<!-- ENDIF equipment_types.items.equipped --><!-- END items --></small>
-		</h4>
+		<h4>{equipment_types.item_type_name} <small>{equipment_types.equipped.item_name}</small></h4>
 	</div>
 	<!-- END equipment_types -->
 	<a href="/rpg/equipment" class="btn btn-lg btn-block btn-default btn-fight">[[of:equip_change]]</a>
