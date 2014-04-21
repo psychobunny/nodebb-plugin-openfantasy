@@ -24,7 +24,7 @@
 				  </div>
 				</div>
 			</div><br />
-			<img src="{battle_opponent_img}" />
+			<img class="opponent_img" src="{battle_opponent_img}" />
 		</th>
 	</tr>
 	<tr>
@@ -240,7 +240,7 @@
 	///*initiative, challengerDamage, opponentDamage, or eventArray?*/
 	function turn(result) {
 		disableButtonsIfNoItem();
-
+		$('.opponent_img').attr('src', $('.opponent_img').attr('src') + '?t=' + (new Date).getTime());
 
 		$('input, button, select').prop('disabled', true)
 
