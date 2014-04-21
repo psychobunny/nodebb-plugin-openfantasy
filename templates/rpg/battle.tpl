@@ -4,8 +4,8 @@
 		<h4>{equipment_types.item_type_name} <small>{equipment_types.equipped.item_name}</small></h4>
 	</div>
 	<!-- END equipment_types -->
-	<a href="/rpg/equipment" class="btn btn-lg btn-block btn-default btn-fight">[[of:equip_change]]</a>
-	<button class="btn btn-lg btn-block btn-primary btn-fight">[[of:battle_fight]]</button>
+	<a href="/rpg/equipment" class="btn btn-lg btn-block btn-default">[[of:equip_change]]</a>
+	<button class="btn btn-lg btn-block btn-primary btn-initialize">[[of:battle_fight]]</button>
 <!-- ENDIF !battle_id -->
 
 <!-- IF battle_id -->
@@ -136,6 +136,14 @@
 
 
 <script type="text/javascript">
+	$('.btn-initialize').on('click', function() {
+		$.post('/api/openfantasy/battle/initialize', {
+			_csrf: $('#csrf_token').val()
+		}, function(result) {
+			ajaxify.refresh();
+		});
+	});
+
 	$('document').ready(function() {
 		$('.rpg-header li').removeClass('active');
 		$('.rpg-header .battle').addClass('active');
