@@ -29,8 +29,8 @@
 	</tr>
 	<tr>
 		<td colspan="3" align="center" valign="top" height="60" style="background: #333; border: 0">
-			<p style="color: white; text-shadow: 1px 1px #111;">
-				<span>[[of:battle_flee_fail, <strong>{character_name}</strong>]]</span>
+			<p style="color: #333; text-shadow: 1px 1px #eee; background: white; height: 23px;">
+				<span id="events" class="fade in"></span>
 			</p>
 			<img src="../plugins/nodebb-plugin-openfantasy/images/misc/vs.gif" style="width: 50px; height: 50px; margin-bottom: 5px;" />
 			<div style="margin-left: auto; margin-right: auto; width: 130px;">
@@ -140,6 +140,9 @@
 	<tr>
 		<td align="center" class="row2" width="100%" colspan="2" ><button class="btn btn-danger btn-flee btn-block">[[of:flee_opponent]]</button></td>
 	</tr>
+	<tr class="hide">
+		<td align="center" class="row2" width="100%" colspan="2" ><a class="btn btn-primary btn-restart btn-block">[[of:battle_return]]</a></td>
+	</tr>
 </table>
 </form>
 <!-- ENDIF battle_id -->
@@ -162,7 +165,7 @@
 			move: 'flee',
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			turn();
+			turn(result);
 		});
 
 		return false;
@@ -173,7 +176,7 @@
 			move: 'defend',
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			turn();
+			turn(result);
 		});
 
 		return false;
@@ -187,7 +190,7 @@
 			mid: $('#item').val(),
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			turn();
+			turn(result);
 		});
 
 		return false;
@@ -201,7 +204,7 @@
 			mid: $('#spell').val(),
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			turn();
+			turn(result);
 		});
 
 		return false;
@@ -215,15 +218,55 @@
 			mid: $('#weapon').val(),
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
-			turn();
+			turn(result);
 		});
 
 		return false;
 	});
 
+	$('.btn-restart').on('click', function() {
+		ajaxify.refresh();
+		return false;
+	});
+
 	///*initiative, challengerDamage, opponentDamage, or eventArray?*/
-	function turn() {
+	function turn(result) {
 		disableButtonsIfNoItem();
+
+		$('input, button, select').prop('disabled', true)
+
+		var events = result.events,
+			eventsEl = $('#events'),
+			messageDuration = 1250;
+
+		for (var i = 0, ii = events.length; i < ii; i++) {
+			(function(i) {
+				setTimeout(function() {
+					eventsEl.removeClass('in');
+					setTimeout(function() {
+						translator.translate(events[i].message, function(message) {
+							eventsEl.html(message);
+							eventsEl.addClass('in');
+						});
+					}, 250);
+					
+					
+				}, messageDuration * i);
+			}(i));
+		}
+
+		setTimeout(function() {
+			if (result.finished !== 1) {
+				$('input, button, select').prop('disabled', false)
+			} else {
+				var parents = $('input, button, select').parents('tr');
+				parents.fadeOut(400, function() {
+					parents.hide();
+					$('.btn-restart').parents('tr').removeClass('hide');
+				});
+				
+			}
+		}, events.length * messageDuration);
 	}
 
 	function disableButtonsIfNoItem() {
@@ -260,6 +303,7 @@
 
 	$('document').ready(function() {
 		disableButtonsIfNoItem();
+
 		$('.rpg-header li').removeClass('active');
 		$('.rpg-header .battle').addClass('active');
 	});
