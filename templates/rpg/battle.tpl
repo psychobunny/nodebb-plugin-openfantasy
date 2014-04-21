@@ -103,7 +103,7 @@
 	-->
 	<tr>
 		<td align="right" class="row2" width="50%">
-			<select class="form-control">
+			<select class="form-control" id="weapon">
 			<!-- BEGIN weapons -->
 				<option value="{weapons.user_item_id}">{weapons.item_id} ({weapons.item_duration} / {weapons.item_duration_max})</option>
 			<!-- END weapons -->
@@ -113,7 +113,7 @@
 	</tr>
 	<tr>
 		<td align="right" class="row1" width="50%">
-			<select class="form-control">
+			<select class="form-control" id="spell">
 			<!-- BEGIN spell -->
 				<option value="{spell.user_item_id}" >{spell.item_id} ({spell.item_duration} / {spell.item_duration_max})</option>
 			<!-- END spell -->
@@ -123,7 +123,7 @@
 	</tr>
 	</tr>
 		<td align="right" class="row2" width="50%">
-			<select class="form-control">
+			<select class="form-control" id="potion">
 			<!-- BEGIN potion -->
 				<option value="{potion.user_item_id}">{potion.item_id} ({potion.item_duration} / {potion.item_duration_max})</option>
 			<!-- END potion -->
@@ -146,6 +146,54 @@
 <script type="text/javascript">
 	$('.btn-initialize').on('click', function() {
 		$.post('/api/openfantasy/battle/initialize', {
+			_csrf: $('#csrf_token').val()
+		}, function(result) {
+			ajaxify.refresh();
+		});
+	});
+
+	$('.btn-flee').on('click', function() {
+		$.post('/api/openfantasy/battle/move', {
+			move: 'flee',
+			_csrf: $('#csrf_token').val()
+		}, function(result) {
+			ajaxify.refresh();
+		});
+	});
+
+	$('.btn-defend').on('click', function() {
+		$.post('/api/openfantasy/battle/move', {
+			move: 'defend',
+			_csrf: $('#csrf_token').val()
+		}, function(result) {
+			ajaxify.refresh();
+		});
+	});
+
+	$('.btn-potion').on('click', function() {
+		$.post('/api/openfantasy/battle/move', {
+			move: 'potion',
+			mid: $('#potion').val(),
+			_csrf: $('#csrf_token').val()
+		}, function(result) {
+			ajaxify.refresh();
+		});
+	});
+
+	$('.btn-spell').on('click', function() {
+		$.post('/api/openfantasy/battle/move', {
+			move: 'spell',
+			mid: $('#spell').val(),
+			_csrf: $('#csrf_token').val()
+		}, function(result) {
+			ajaxify.refresh();
+		});
+	});
+
+	$('.btn-attack').on('click', function() {
+		$.post('/api/openfantasy/battle/move', {
+			move: 'attack',
+			mid: $('#weapon').val(),
 			_csrf: $('#csrf_token').val()
 		}, function(result) {
 			ajaxify.refresh();
