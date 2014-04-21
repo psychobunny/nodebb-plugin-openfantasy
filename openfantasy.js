@@ -38,7 +38,7 @@ function initialize(app, middleware, controllers) {
 	require('./lib/config').init(data.config);
 	require('./lib/elements').init(data.elements);
 	require('./lib/items').init(data.shops_items, data.shops_items_type, data.shops_items_quality);
-	require('./lib/monsters').init(data.monsters);
+	require('./lib/monsters').init(data.battle_monsters);
 	require('./lib/races').init(data.races);
 	require('./lib/skills').init(data.skills);
 	require('./lib/stores').init(data.stores);
