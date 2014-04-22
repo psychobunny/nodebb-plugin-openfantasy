@@ -1,5 +1,6 @@
 ## Unused in Character Hash
 
+```
 /*character_warehouse: character_warehouse || null, // implementing these later
 character_warehouse_update: character_warehouse_update || null,
 character_shop_update: character_shop_update || null,*/
@@ -16,3 +17,4 @@ prefs_tax_pm_notify: prefs_tax_pm_notify || null,
 character_pref_give_pm: character_pref_give_pm || null,
 character_pref_seller_pm: character_pref_seller_pm || null, */
 // character_limit_update: 1, I have no idea what this does
+```
