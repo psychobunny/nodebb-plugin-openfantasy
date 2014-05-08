@@ -32,6 +32,10 @@ __ADR Addon Developers__
 
 egdcltd, cal361, himmelweiss, LagunaCid, Chaos, vash1468, ShadowTek, NinjaKitten, Makien, ES_Archangel, ProtoJazz, Masterhand, Brinker, renlok, gamecharmer, lordkimark, the_nobody, labelwhore, Escargot, King_Mauri, Ãƒâ€šÃ‚Â± W@r|0rd Ãƒâ€šÃ‚ Lloyd Black, Markliujy, Ganondorf, Sederien, Agent009, Eternal-Warrior, deksab, Milamber, AnyKiller, Chronic, one_piece, Deadfire, Raven, Azra, Dyrnwyn, FantasyKnight5, ArangeL, Blackpawn, Yanden, grayscale2005, Neirda Jr. Itavodev, lucidliquid, Spirit, Mejandora, theman05, Sim, St Gryphon, Leo, Omadesala, HFD, Zachary Aerogos, FoxPowa, animemaster, OzzieOne, aaop, sledrick, okinawa, agglax, damoose, commander, Cirdecp007, Gfa_Archangel, GuruKast, Dedo, egbeastlord, Avalon, jamieneil, Silke Buthmann, Dragonlord, breakersx, orochi, nhcd, volf, TheYoMan, WDInc., wolfes1126, Rainbow07, Taz, hopefull, weaponx, dgeeze, Hazardu5, MrDSL, Seteo-Bloke, psychobunny
 
+__ADR Port Authors__
+
+ganondorf, ex0dus (this list is incomplete, there's a ton of you so please send me a message)
+
 ...and the hundreds of you that owned and managed your own ADR game! You're important too (all the bug reports haha) so please feel free to contact me and I will list your name here
 
 If I missed any of you email me and I will update ASAP (sorry!). Likewise if you feel that you do not want to be on this list.
