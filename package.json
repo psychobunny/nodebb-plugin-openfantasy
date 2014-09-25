@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-openfantasy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A fully featured RPG (Role Playing Game) plugin for NodeBB",
   "main": "library.js",
   "scripts": {
