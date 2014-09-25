@@ -8,7 +8,7 @@ var	fs = require('fs'),
 	data = require('./data/data'),
 	meta = module.parent.require('./meta'),
 	plugins = module.parent.require('./plugins'),
-	templates = module.parent.require('../public/src/templates'),
+	templates = module.parent.require('templates.js'),
 	translator = module.parent.require('../public/src/translator');
 
 
