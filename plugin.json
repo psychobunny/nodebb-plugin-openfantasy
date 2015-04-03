@@ -6,7 +6,7 @@
 	"library": "./openfantasy.js",
 	"hooks": [
 		{
-			"hook": "filter:header.build", "method": "addNavigation"
+			"hook": "filter:navigation.available", "method": "addNavigation"
 		},
 		{
 			"hook": "action:app.load", "method": "init"

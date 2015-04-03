@@ -85,14 +85,19 @@ OF.init = function(app, middleware, controllers) {
 	});
 };
 
-OF.addNavigation = function(custom_header, callback) {
-	custom_header.navigation.push({
-			"class": "",
-			"route": "/rpg/character",
-			"text": "RPG"
-		});
+OF.addNavigation = function(menu, callback) {
+	menu.push({
+		"route": "/rpg/character",
+		"title": "RPG",
+		"enabled": true,
+		"iconClass": "fa-compass",
+		"text": "\\[\\[openfantasy:rpg\\]\\]",
+		"properties": {
+			"loggedIn": true
+		}
+	});
 
-	callback(null, custom_header);
+	callback (null, menu);
 };
 
 module.exports = OF;
