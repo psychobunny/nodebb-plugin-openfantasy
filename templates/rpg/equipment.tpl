@@ -28,7 +28,7 @@
 <script type="text/javascript">
 	$('.btn-equip').on('click', function(err) {
 		$.post('/api/openfantasy/equipment/equip', {
-			_csrf: $('#csrf_token').val(),
+			_csrf: config.csrf_token,
 			equipment: $('#equipment').serializeArray()
 		}, function(result) {
 			app['alert' + (!!result.status ? 'Success' : 'Error')](result.message);

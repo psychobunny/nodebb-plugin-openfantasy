@@ -152,7 +152,7 @@
 <script type="text/javascript">
 	$('.btn-initialize').on('click', function() {
 		$.post('/api/openfantasy/battle/initialize', {
-			_csrf: $('#csrf_token').val()
+			_csrf: config.csrf_token
 		}, function(result) {
 			ajaxify.refresh();
 		});
@@ -163,7 +163,7 @@
 	$('.btn-flee').on('click', function() {
 		$.post('/api/openfantasy/battle/move', {
 			move: 'flee',
-			_csrf: $('#csrf_token').val()
+			_csrf: config.csrf_token
 		}, function(result) {
 			turn(result);
 		});
@@ -174,7 +174,7 @@
 	$('.btn-defend').on('click', function() {
 		$.post('/api/openfantasy/battle/move', {
 			move: 'defend',
-			_csrf: $('#csrf_token').val()
+			_csrf: config.csrf_token
 		}, function(result) {
 			turn(result);
 		});
@@ -190,7 +190,7 @@
 		$.post('/api/openfantasy/battle/move', {
 			move: 'item',
 			mid: $('#item').val(),
-			_csrf: $('#csrf_token').val()
+			_csrf: config.csrf_token
 		}, function(result) {
 			turn(result);
 		});
@@ -206,7 +206,7 @@
 		$.post('/api/openfantasy/battle/move', {
 			move: 'spell',
 			mid: $('#spell').val(),
-			_csrf: $('#csrf_token').val()
+			_csrf: config.csrf_token
 		}, function(result) {
 			turn(result);
 		});
@@ -220,7 +220,7 @@
 		$.post('/api/openfantasy/battle/move', {
 			move: 'attack',
 			mid: $('#weapon').val(),
-			_csrf: $('#csrf_token').val()
+			_csrf: config.csrf_token
 		}, function(result) {
 			turn(result);
 		});
@@ -250,7 +250,7 @@
 		
 		eventsEl.removeClass('in');
 		$('input, button, select').prop('disabled', true)
-		setTimeout(function() {
+		//setTimeout(function() {
 			var events = result.events,
 				messageDuration = 2000;
 
@@ -282,7 +282,7 @@
 					
 				}
 			}, (events.length - 1) * messageDuration);
-		}, 2500);
+		//}, 2500);
 	}
 
 	function disableButtonsIfNoItem() {

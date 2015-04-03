@@ -106,7 +106,7 @@ You have <strong>{character_points}</strong> {l_points}.
 			app.alertError('[[of:lack_points]]');
 		} else {
 			$.post('/api/openfantasy/shops/buy', {
-				_csrf: $('#csrf_token').val(),
+				_csrf: config.csrf_token,
 				itemID: itemID
 			}, function(result) {
 				app['alert' + (!!result.status ? 'Success' : 'Error')](result.message);

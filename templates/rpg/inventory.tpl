@@ -56,7 +56,7 @@
 		bootbox.confirm('[[of:shop_items_confirm_delete]]', function(confirm) {
 			if (confirm) {
 				$.post('/api/openfantasy/inventory/delete', {
-					_csrf: $('#csrf_token').val(),
+					_csrf: config.csrf_token,
 					userItemID: userItemID
 				}, function(result) {
 					app['alert' + (!!result.status ? 'Success' : 'Error')](result.message);

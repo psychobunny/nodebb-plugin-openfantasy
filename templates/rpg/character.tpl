@@ -78,7 +78,7 @@ $('document').ready(function() {
 			'character_class': $('#character_class').val(),
 			'character_name': $('#character_name').val(),
 			'character_desc': $('#character_desc').val(),
-			'_csrf': $('#csrf_token').val()
+			'_csrf': config.csrf_token
 		},function(data) {
 			ajaxify.refresh();
 		});
@@ -276,7 +276,7 @@ $('document').ready(function() {
 	$('button.delete').on('click', function() {
 		bootbox.confirm('<strong>[[of:character_delete_confirm]]</strong>', function(confirm) {
 			if (confirm) {
-				$.post('/api/openfantasy/character/delete', {'_csrf': $('#csrf_token').val()},function(data) {
+				$.post('/api/openfantasy/character/delete', {'_csrf': config.csrf_token},function(data) {
 					ajaxify.refresh();
 				});
 			}
