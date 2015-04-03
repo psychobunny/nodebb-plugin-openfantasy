@@ -20,7 +20,7 @@ var OF = {
 };
 
 var constants = Object.freeze({
-	"image_path": nconf.get('url') + "/plugins/nodebb-plugin-openfantasy/images/"
+	"image_path": nconf.get('url') + "/plugins/nodebb-plugin-openfantasy/static/images/"
 });
 
 function initialize(app, middleware, controllers) {

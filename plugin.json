@@ -12,7 +12,9 @@
 			"hook": "static:app.load", "method": "init"
 		}
 	],
-	"staticDir": "./static",
+	"staticDirs": {
+		"static": "./static"
+	},
 	"templates": "./templates",
 	"less": [
 		"./static/style.less"
