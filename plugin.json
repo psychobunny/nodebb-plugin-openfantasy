@@ -9,7 +9,7 @@
 			"hook": "filter:navigation.available", "method": "addNavigation"
 		},
 		{
-			"hook": "action:app.load", "method": "init"
+			"hook": "static:app.load", "method": "init"
 		}
 	],
 	"staticDir": "./static",

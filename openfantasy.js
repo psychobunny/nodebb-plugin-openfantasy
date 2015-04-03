@@ -73,7 +73,12 @@ function normalizeImagePaths(data) {
 	return data;
 }
 
-OF.init = function(app, middleware, controllers) {
+OF.init = function(params, callback) {
+	var router = params.router,
+		middleware = params.middleware,
+		controllers = params.controllers;
+
+
 	plugins.isActive('nodebb-plugin-cash', function(err, isActive) {
 		if (!isActive) {
 			return winston.error('[openfantasy] Cash MOD not installed, OpenFantasy has been deactivated');
@@ -81,7 +86,8 @@ OF.init = function(app, middleware, controllers) {
 
 		templates.setGlobal('l_points', meta.config['cash:currency_name'] ? meta.config['cash:currency_name'] : 'points');
 
-		initialize(app, middleware, controllers);
+		initialize(router, middleware, controllers);
+		callback();
 	});
 };
 
