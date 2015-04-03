@@ -58,6 +58,7 @@ var openfantasy = openfantasy || {
 	$(document).ready(function() {
 		require(['translator'], function(module) {
 			translator = module;
+			setup();
 		});
 	});
 
