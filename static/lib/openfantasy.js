@@ -1,5 +1,5 @@
 "use strict";
-/*global translator, templates*/
+/*global templates*/
 
 var openfantasy = openfantasy || {
 	templates: {
@@ -26,7 +26,7 @@ var openfantasy = openfantasy || {
 		content.html(content.html().replace(/{character_points}/g, openfantasy.cash.points).replace(/{l_points}/g, openfantasy.cash.currency));
 	}
 
-	$(document).ready(function() {
+	function setup() {
 		$.get('/templates/rpg/header.tpl', function(header) {
 			translator.translate(header, function(translatedHeader) {
 				openfantasy.templates.header = translatedHeader;
@@ -53,6 +53,12 @@ var openfantasy = openfantasy || {
 		});
 
 		getCash();
+	}
+
+	$(document).ready(function() {
+		require(['translator'], function(module) {
+			translator = module;
+		});
 	});
 
 	openfantasy.refreshCash = getCash;
