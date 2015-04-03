@@ -12,7 +12,7 @@
 <form>
 <table width="100%" class="table" align="center" valign="middle">
 	<tr>
-		<th align="center" width="100%" valign="middle" colspan="3" style="text-align: center; background: url(../plugins/nodebb-plugin-openfantasy/images/backgrounds/battle_bgnd_1.gif); background-size: contain;">
+		<th align="center" width="100%" valign="middle" colspan="3" style="text-align: center; background: url(../plugins/nodebb-plugin-openfantasy/static/images/backgrounds/battle_bgnd_1.gif); background-size: contain;">
 			<div style="margin-left: auto; margin-right: auto; width: 130px;">
 				<strong style="color: white; text-shadow: 1px 1px #111;">{battle_opponent_name}</strong><br />
 				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
@@ -32,7 +32,7 @@
 			<p style="color: #333; text-shadow: 1px 1px #eee; background: white; height: 23px;">
 				<span id="events" class="fade in"></span>
 			</p>
-			<img src="../plugins/nodebb-plugin-openfantasy/images/misc/vs.gif" style="width: 50px; height: 50px; margin-bottom: 5px;" />
+			<img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/vs.gif" style="width: 50px; height: 50px; margin-bottom: 5px;" />
 			<div style="margin-left: auto; margin-right: auto; width: 130px;">
 				<strong style="color: white; text-shadow: 1px 1px #111;">{character_name}</strong><br />
 				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">

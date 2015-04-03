@@ -19,7 +19,7 @@
 					<td align="center"><span class="gensmall">{skills.skill_name}: {skills.skill_min} / {skills.skill_max}</td>
 				</tr>
 				<tr>
-					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{skills.skill_bar}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{skills.skill_bar_empty}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
+					<td align="center"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_orange_middle.gif" width="{skills.skill_bar}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_emp.gif" width="{skills.skill_bar_empty}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
 				</tr>
 			</table>
 		</td>

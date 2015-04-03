@@ -148,7 +148,7 @@ $('document').ready(function() {
 							<td align="center"><span>[[of:character_health]] {character_hp} / {character_hp_max}</td>
 						</tr>
 						<tr>
-							<td align="center">&nbsp;<img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_middle.gif" width="{hp_percent_width}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{hp_percent_empty}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_red_end.gif" width="6" height="13" /></td>
+							<td align="center">&nbsp;<img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_red_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_red_middle.gif" width="{hp_percent_width}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_emp.gif" width="{hp_percent_empty}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_red_end.gif" width="6" height="13" /></td>
 						</tr>
 						</table>
 					</td>
@@ -160,7 +160,7 @@ $('document').ready(function() {
 							<td align="center"><span>[[of:character_magic]] {character_mp} / {character_mp_max}</td>
 						</tr>
 						<tr>
-							<td align="center">&nbsp;<img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_middle.gif" width="{mp_percent_width}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{mp_percent_empty}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
+							<td align="center">&nbsp;<img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_blue_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_blue_middle.gif" width="{mp_percent_width}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_emp.gif" width="{mp_percent_empty}%" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_blue_end.gif" width="6" height="13" /></td>
 						</tr>
 						</table>
 					</td>
@@ -172,7 +172,7 @@ $('document').ready(function() {
 							<td align="center"><span>[[of:character_weight]]: {character_weight} / {character_weight_max}</td>
 						</tr>
 						<tr>
-							<td align="center">&nbsp;<img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_middle.gif" width="{weight_percent_width}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{weight_percent_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
+							<td align="center">&nbsp;<img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_orange_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_orange_middle.gif" width="{weight_percent_width}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_emp.gif" width="{weight_percent_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_orange_end.gif" width="6" height="13" /></td>
 						</tr>
 						</table>
 					</td>
@@ -184,7 +184,7 @@ $('document').ready(function() {
 							<td align="center"><span>[[of:character_experience]]: {character_xp} / {character_xp_max}</td>
 						</tr>
 						<tr>
-							<td align="center">&nbsp;<img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_green_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_green_middle.gif" width="{exp_percent_width}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_emp.gif" width="{exp_percent_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/images/misc/bar_green_end.gif" width="6" height="13" /></td>
+							<td align="center">&nbsp;<img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_green_begin.gif" width="6" height="13" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_green_middle.gif" width="{exp_percent_width}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_emp.gif" width="{exp_percent_empty}" height="13" border="0" /><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/bar_green_end.gif" width="6" height="13" /></td>
 						</tr>
 						</table>
 					</td>
@@ -193,42 +193,42 @@ $('document').ready(function() {
                     <td align="center" class="row1" colspan="6">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/au.gif" alt="{l_points}"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/au.gif" alt="{l_points}"></td>
                     <td align="center" width="35%"><span>{l_points}</span></td>
                     <td align="center" width="10%"><span>{character_points}</span></td>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/dex.gif" alt="[[of:character_dexterity]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/dex.gif" alt="[[of:character_dexterity]]"></td>
                     <td align="center" width="35%"><span>[[of:character_dexterity]]</span></td>
                     <td align="center" width="10%"><span>{character_dexterity}</span></td>
                 </tr>
                 <tr>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/sp.gif" alt="[[of:character_sp]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/sp.gif" alt="[[of:character_sp]]"></td>
                     <td align="center" width="35%"><span>[[of:character_sp]]</span></td>
                     <td align="center" width="10%"><span>{character_sp}</span></td>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/const.gif" alt="[[of:character_constitution]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/const.gif" alt="[[of:character_constitution]]"></td>
                     <td align="center" width="35%"><span>[[of:character_constitution]]</span></td>
                     <td align="center" width="10%"><span>{character_constitution}</span></td>
                 </tr>
                 <tr>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/sp.gif" alt="[[of:character_fp]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/sp.gif" alt="[[of:character_fp]]"></td>
                     <td align="center" width="35%"><span>[[of:character_fp]]</span></td>
                     <td align="center" width="10%"><span>{character_fp}</span></td>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/int.gif" alt="[[of:character_intelligence]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/int.gif" alt="[[of:character_intelligence]]"></td>
                     <td align="center" width="35%"><span>[[of:character_intelligence]]</span></td>
                     <td align="center" width="10%"><span>{character_intelligence}</span></td>
                 </tr>
                 <tr>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/ac.gif" alt="[[of:character_ac]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/ac.gif" alt="[[of:character_ac]]"></td>
                     <td align="center" width="35%"><span>[[of:character_ac]]</span></td>
                     <td align="center" width="10%"><span>{character_ac}</span></td>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/look.gif" alt="[[of:character_wisdom]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/look.gif" alt="[[of:character_wisdom]]"></td>
                     <td align="center" width="35%"><span>[[of:character_wisdom]]</span></td>
                     <td align="center" width="10%"><span>{character_wisdom}</span></td>
                 </tr>
                 <tr>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/str.gif" alt="[[of:character_might]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/str.gif" alt="[[of:character_might]]"></td>
                     <td align="center" width="35%"><span>[[of:character_might]]</span></td>
                     <td align="center" width="10%"><span>{character_might}</span></td>
-                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/images/misc/cha.gif" alt="[[of:character_charisma]]"></td>
+                    <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/cha.gif" alt="[[of:character_charisma]]"></td>
                     <td align="center" width="35%"><span>[[of:character_charisma]]</span></td>
                     <td align="center" width="10%"><span>{character_charisma}</span></td>
                 </tr>
