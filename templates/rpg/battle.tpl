@@ -150,6 +150,15 @@
 
 
 <script type="text/javascript">
+	$('.btn').on('click', function() {
+		if ($(this).attr('prevHtml')) {
+			return;
+		}
+
+		$(this).attr('prevHtml', $(this).html());
+		$(this).html('<i class="fa fa-spin fa-circle-o-notch"></i>');
+	});
+
 	$('.btn-initialize').on('click', function() {
 		$.post('/api/openfantasy/battle/initialize', {
 			_csrf: config.csrf_token
@@ -250,39 +259,40 @@
 		
 		eventsEl.removeClass('in');
 		$('input, button, select').prop('disabled', true)
-		//setTimeout(function() {
-			var events = result.events,
-				messageDuration = 2000;
+		
+		var events = result.events,
+			messageDuration = 2000;
 
-			for (var i = 0, ii = events.length; i < ii; i++) {
-				(function(i) {
+		for (var i = 0, ii = events.length; i < ii; i++) {
+			(function(i) {
+				setTimeout(function() {
+					eventsEl.removeClass('in');
 					setTimeout(function() {
-						eventsEl.removeClass('in');
-						setTimeout(function() {
-							translator.translate(events[i].message, function(message) {
-								eventsEl.html(message);
-								eventsEl.addClass('in');
-							});
-						}, 250);
-						
-						
-					}, messageDuration * i);
-				}(i));
-			}
-
-			setTimeout(function() {
-				if (result.finished !== 1) {
-					$('input, button, select').prop('disabled', false)
-				} else {
-					var parents = $('input, button, select').parents('tr');
-					parents.fadeOut(400, function() {
-						parents.hide();
-						$('.btn-restart').parents('tr').removeClass('hide');
-					});
+						translator.translate(events[i].message, function(message) {
+							eventsEl.html(message);
+							eventsEl.addClass('in');
+						});
+					}, 250);
 					
-				}
-			}, (events.length - 1) * messageDuration);
-		//}, 2500);
+					
+				}, messageDuration * i);
+			}(i));
+		}
+
+		setTimeout(function() {
+			if (result.finished !== 1) {
+				$('input, button, select').prop('disabled', false);
+				var loadingBtn = $('.btn[prevHtml]');
+				loadingBtn.html(loadingBtn.attr('prevHtml')).removeAttr('prevHtml');
+			} else {
+				var parents = $('input, button, select').parents('tr');
+				parents.fadeOut(400, function() {
+					parents.hide();
+					$('.btn-restart').parents('tr').removeClass('hide');
+				});
+				
+			}
+		}, (events.length - 1) * messageDuration);
 	}
 
 	function disableButtonsIfNoItem() {
