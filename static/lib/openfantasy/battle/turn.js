@@ -37,6 +37,12 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 				translator.translate(events[i].message, function(message) {
 					eventsEl.html(message);
 					eventsEl.addClass('in');
+
+					switch (events[i].type) {
+					case 'opponent:attack':
+						animateOpponentAttack();
+						break;
+					}
 				});
 			}, 250);
 		}, messageDuration * i);
