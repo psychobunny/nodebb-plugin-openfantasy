@@ -17,13 +17,7 @@ var openfantasy = openfantasy || {
 			};
 
 			templates.setGlobal('l_points', cash.currency);
-			parseCash();
 		});
-	}
-
-	function parseCash() {
-		var content = $('#content');
-		//content.html(content.html().replace(/{character_points}/g, openfantasy.cash.points).replace(/{l_points}/g, openfantasy.cash.currency));
 	}
 
 	function setup() {
