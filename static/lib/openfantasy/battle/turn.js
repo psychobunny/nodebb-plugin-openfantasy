@@ -6,7 +6,7 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 	var turn = {},
 		eventsEl,
 
-		messageDuration = 2000;
+		messageDuration = 1500;
 
 	///*initiative, challengerDamage, opponentDamage, or eventArray?*/
 	turn.go = function(result) {
