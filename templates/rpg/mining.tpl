@@ -1,4 +1,4 @@
-<table border="1" align="center" class="table" width="80%" >
+<table border="2" align="center" class="table" width="80%" >
 	<tr>
 		<td align="center" class="CatHead" colspan="2"><b>[[of:mining]]</b></td>
 	</tr>

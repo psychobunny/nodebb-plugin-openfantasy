@@ -1,12 +1,12 @@
 <form method="post" action="{S_CHARACTER_ACTION}">
 <br />
 
-<table cellspacing="1" cellpadding="1" border="1" align="center" class="table" width="100%">
+<table cellspacing="1" cellpadding="1" border="2" align="center" class="table" width="100%">
 	<tr>
-		<td class="row2" align="center" width="15%"><span class="gen"><b>[[of:races_image]]</b></span></td>
-		<td class="row2" align="center" width="10%"><span class="gen"><b>[[of:character_level]]</b></span></td>
-		<td class="row2" align="center" width="30%"><span class="gen"><b>[[of:races_desc]]</b></span></td>
-		<td class="row2" align="center" width="45%"><span class="gen"><b>[[of:character_progress]]</b></span></td>
+		<th class="row2" align="center" width="15%"><span class="gen"><b>[[of:races_image]]</b></span></th>
+		<th class="row2" align="center" width="10%"><span class="gen"><b>[[of:character_level]]</b></span></th>
+		<th class="row2" align="center" width="30%"><span class="gen"><b>[[of:races_desc]]</b></span></th>
+		<th class="row2" align="center" width="45%"><span class="gen"><b>[[of:character_progress]]</b></span></th>
 	</tr>
 	<!-- BEGIN skills -->
 	<tr>

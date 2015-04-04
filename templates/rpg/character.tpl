@@ -126,7 +126,7 @@ $('document').ready(function() {
 				</tr>
 			</table>
 			<!-- IF owner -->
-			<table class="table" cellspacing="1" cellpadding="1" border="1" align="center" width="100%">
+			<table class="table" cellspacing="1" cellpadding="1" border="2" align="center" width="100%">
 				<tr>
 					<td align="center" ><button class="form-control bio_edit">[[of:character_edit]]</button></td>
 				</tr>
@@ -140,10 +140,10 @@ $('document').ready(function() {
 		</span></td>
 
 		<td class="row1" align="center">
-			<table class="table" cellspacing="2" cellpadding="1" border="1" align="center" width="100%">
+			<table class="table" cellspacing="2" cellpadding="1" border="2" align="center" width="100%">
 				<tr>
 					<td align="center" colspan="6" class="row2">
-						<table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+						<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 						<tr>
 							<td align="center"><span>[[of:character_health]] {character_hp} / {character_hp_max}</td>
 						</tr>
@@ -155,7 +155,7 @@ $('document').ready(function() {
 				</tr>
 				<tr>
 					<td align="center" colspan="6" class="row2">
-						<table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+						<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 						<tr>
 							<td align="center"><span>[[of:character_magic]] {character_mp} / {character_mp_max}</td>
 						</tr>
@@ -167,7 +167,7 @@ $('document').ready(function() {
 				</tr>
 				<tr>
 					<td align="center" colspan="6" class="row2">
-						<table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+						<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 						<tr>
 							<td align="center"><span>[[of:character_weight]]: {character_weight} / {character_weight_max}</td>
 						</tr>
@@ -179,7 +179,7 @@ $('document').ready(function() {
 				</tr>
 				<tr>
 					<td align="center" colspan="6" class="row2">
-						<table class="table" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+						<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
 						<tr>
 							<td align="center"><span>[[of:character_experience]]: {character_xp} / {character_xp_max}</td>
 						</tr>
@@ -189,9 +189,8 @@ $('document').ready(function() {
 						</table>
 					</td>
 				</tr>
-                <tr>
-                    <td align="center" class="row1" colspan="6">&nbsp;</td>
-                </tr>
+        	</table>
+        	<table class="table" cellspacing="2" cellpadding="1" border="2" align="center" width="100%">
                 <tr>
                     <td align="center" width="5%"><img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/au.gif" alt="{l_points}"></td>
                     <td align="center" width="35%"><span>{l_points}</span></td>
@@ -238,7 +237,7 @@ $('document').ready(function() {
 </table>
 <!-- after I implement battle.
 <br clear="all" />
-<table class="table" cellspacing="1" cellpadding="1" border="1" align="center" width="90%">
+<table class="table" cellspacing="1" cellpadding="1" border="2" align="center" width="90%">
 	<tr>
 		<th align="center" colspan="3">{l_battle_statistics}</th>
 	</tr>
