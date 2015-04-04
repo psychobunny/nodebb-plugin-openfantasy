@@ -55,6 +55,7 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 	}
 
 	function animateOpponentAttack() {
+		animate($('#opponent_img'), '');
 		$('#opponent_img').attr('src', $('#opponent_img').attr('src') + '?t=' + (new Date()).getTime());
 	}
 
