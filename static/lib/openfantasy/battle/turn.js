@@ -1,6 +1,6 @@
 "use strict";
 
-/*global define*/
+/*global define, templates*/
 
 define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, ui) {
 	var turn = {},
@@ -35,6 +35,7 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 			eventsEl.removeClass('in');
 			setTimeout(function() {
 				translator.translate(result.events[i].message, function(message) {
+					message = templates.parse(message, {});
 					eventsEl.html(message);
 					eventsEl.addClass('in');
 
