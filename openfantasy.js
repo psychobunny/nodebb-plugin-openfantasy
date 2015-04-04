@@ -89,6 +89,9 @@ OF.init = function(params, callback) {
 		initialize(router, middleware, controllers);
 		callback();
 	});
+
+	router.get('/admin/openfantasy/home', middleware.admin.buildHeader, renderAdmin);
+	router.get('/api/admin/openfantasy/home', renderAdmin);
 };
 
 OF.addNavigation = function(menu, callback) {
@@ -105,5 +108,19 @@ OF.addNavigation = function(menu, callback) {
 
 	callback (null, menu);
 };
+
+OF.addAdminNavigation = function(header, callback) {
+	header.plugins.push({
+		route: '/openfantasy/home',
+		icon: 'fa-compass',
+		name: 'OpenFantasy'
+	});
+
+	callback(null, header);
+};
+
+function renderAdmin(req, res, next) {
+	res.render('admin/openfantasy/home', {});
+}
 
 module.exports = OF;
