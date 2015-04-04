@@ -29,8 +29,6 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 							eventsEl.addClass('in');
 						});
 					}, 250);
-					
-					
 				}, messageDuration * i);
 			}(i));
 		}
@@ -46,7 +44,6 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 					parents.hide();
 					$('.btn-restart').parents('tr').removeClass('hide');
 				});
-				
 			}
 		}, (events.length - 1) * messageDuration);
 	};

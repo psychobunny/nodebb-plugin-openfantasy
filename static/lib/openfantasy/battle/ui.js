@@ -11,7 +11,7 @@ define('rpg/battle/ui', ['translator'], function(translator) {
 	};
 
 	ui.addActionHandlers = function(callback) {
-		$('.btn').on('click', function() {
+		$('.btn-flee, .btn-defend, .btn-attack, .btn-spell, .btn-item').on('click', function() {
 			if ($(this).attr('prevHtml')) {
 				return;
 			}
