@@ -32,7 +32,7 @@
 			<p style="color: #333; text-shadow: 1px 1px #eee; background: white; height: 23px;">
 				<span id="events" class="fade in"></span>
 			</p>
-			<img src="../plugins/nodebb-plugin-openfantasy/static/images/misc/vs.gif" style="width: 50px; height: 50px; margin-bottom: 5px;" />
+			<img src="{profile_image}" style="width: 50px; height: 50px; margin-bottom: 5px;" />
 			<div style="margin-left: auto; margin-right: auto; width: 130px;">
 				<strong style="color: white; text-shadow: 1px 1px #111;">{character_name}</strong><br />
 				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
