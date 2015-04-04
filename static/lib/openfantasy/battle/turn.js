@@ -18,7 +18,7 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 		$('input, button, select').prop('disabled', true);
 
 		for (var i = 0, ii = events.length; i < ii; i++) {
-			renderEvent(i, events);
+			renderEvent(i, result);
 		}
 
 		setTimeout(function() {
@@ -30,17 +30,20 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 		}, (events.length - 1) * messageDuration);
 	};
 
-	function renderEvent(i, events) {
+	function renderEvent(i, result) {
 		setTimeout(function() {
 			eventsEl.removeClass('in');
 			setTimeout(function() {
-				translator.translate(events[i].message, function(message) {
+				translator.translate(result.events[i].message, function(message) {
 					eventsEl.html(message);
 					eventsEl.addClass('in');
 
-					switch (events[i].type) {
+					switch (result.events[i].type) {
 					case 'opponent:attack':
 						animateOpponentAttack();
+						break;
+					case 'character:attack':
+						updateVitals(result.data);
 						break;
 					}
 				});
@@ -49,7 +52,12 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 	}
 
 	function animateOpponentAttack() {
-		$('.opponent_img').attr('src', $('.opponent_img').attr('src') + '?t=' + (new Date()).getTime());
+		$('#opponent_img').attr('src', $('#opponent_img').attr('src') + '?t=' + (new Date()).getTime());
+	}
+
+	function updateVitals(data) {
+		$('#opponent_hp').css('width', data.battle_opponent_hp / data.battle_opponent_hp_max * 100 + '%');
+
 	}
 
 	function endTurn() {
