@@ -44,8 +44,9 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 						animateOpponentAttack();
 						break;
 					case 'character:attack':
+						animateOpponentDamaged();
+					case 'character:attack:fail': // intentional fall through
 						updateVitals(result.data);
-						animateOpponentDamaged()
 						break;
 					}
 				});
