@@ -2,6 +2,11 @@
 
 A fully featured RPG (Role Playing Game) plugin for NodeBB forums.
 
+## Installation
+
+	In the ACP, install and activate this plugin and then restart your forum. Next, go to General -> Navigation and add the RPG to your menu.
+
+
 ## About NodeBB
 
 Don't forget to [like NodeBB on Facebook](http://www.facebook.com/nodebb)!
