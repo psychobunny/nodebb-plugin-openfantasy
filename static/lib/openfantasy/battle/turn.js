@@ -45,6 +45,7 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 						break;
 					case 'character:attack':
 						updateVitals(result.data);
+						animateOpponentDamaged()
 						break;
 					}
 				});
@@ -56,12 +57,21 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 		$('#opponent_img').attr('src', $('#opponent_img').attr('src') + '?t=' + (new Date()).getTime());
 	}
 
+	function animateOpponentDamaged() {
+		animate($('#opponent_img'), 'bounce');
+	}
+
+	function animate(el, type) {
+		el.removeClass('animated bounce shake rotateOut');
+		setTimeout(function() { el.addClass('animated ' + type) }, 1);
+	}
+
 	function updateVitals(data) {
 		$('#opponent_hp').css('width', data.battle_opponent_hp / data.battle_opponent_hp_max * 100 + '%');
 
 		if (parseInt(data.battle_opponent_hp, 10) === 0) {
 			setTimeout(function() {
-				$('#opponent_img').addClass('animated rotateOut');
+				animate($('#opponent_img'), 'rotateOut');
 			}, 500);
 		}
 	}
