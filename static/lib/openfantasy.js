@@ -23,7 +23,7 @@ var openfantasy = openfantasy || {
 
 	function parseCash() {
 		var content = $('#content');
-		content.html(content.html().replace(/{character_points}/g, openfantasy.cash.points).replace(/{l_points}/g, openfantasy.cash.currency));
+		//content.html(content.html().replace(/{character_points}/g, openfantasy.cash.points).replace(/{l_points}/g, openfantasy.cash.currency));
 	}
 
 	function setup() {
