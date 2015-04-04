@@ -58,6 +58,11 @@ define('rpg/battle/turn', ['translator', 'rpg/battle/ui'], function(translator, 
 	function updateVitals(data) {
 		$('#opponent_hp').css('width', data.battle_opponent_hp / data.battle_opponent_hp_max * 100 + '%');
 
+		if (parseInt(data.battle_opponent_hp, 10) === 0) {
+			setTimeout(function() {
+				$('#opponent_img').addClass('animated rotateOut');
+			}, 500);
+		}
 	}
 
 	function endTurn() {
