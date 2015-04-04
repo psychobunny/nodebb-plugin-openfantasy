@@ -15,7 +15,7 @@
 		<th align="center" width="100%" valign="middle" colspan="3" style="text-align: center; background: url(../plugins/nodebb-plugin-openfantasy/static/images/backgrounds/battle_bgnd_1.gif); background-size: contain;">
 			<div style="margin-left: auto; margin-right: auto; width: 130px;">
 				<strong style="color: white; text-shadow: 1px 1px #111;">{battle_opponent_name}</strong><br />
-				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
+				<div class="progress progress-striped active" style="height: 15px; width: 100%; margin: 0; margin-bottom: -2px; border: 1px solid #555;">
 				  <div id="opponent_hp" class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 				  </div>
 				</div>
@@ -35,7 +35,7 @@
 			<img src="{profile_image}" style="width: 50px; height: 50px; margin-bottom: 5px;" />
 			<div style="margin-left: auto; margin-right: auto; width: 130px;">
 				<strong style="color: white; text-shadow: 1px 1px #111;">{character_name}</strong><br />
-				<div class="progress progress-striped active" style="height: 8px; width: 100%; margin: 0; border: 1px solid #555;">
+				<div class="progress progress-striped active" style="height: 15px; width: 100%; margin: 0; margin-bottom: -2px; border: 1px solid #555;">
 				  <div id="character_hp" class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
 				  </div>
 				</div>
