@@ -581,7 +581,7 @@
 	"battle_no_potion": "No Potion",
 	"battle_no_item": "No Item",
 	"battle_critical_hit": "Critical Hit!",
-	"battle_won": "You inflict a death blow of %s damage and leave victorious from the battle! You earn %s experience, %s Spirit Points (SP) and %s %s",
+	"battle_won": "You leave victorious from battle! You earn %1 experience, %2 Spirit Points (SP) and %3 %4",
 	"battle_pvp_won": "You inflict a death blow of %s damage and leave victorious from the battle! You earn %s experience and %s %s",
 	"battle_stolen_items": "You recover your stolen items from %s's dead corpse",
 	"battle_stolen_items_lost": "%s runs off with your stolen goods!",
