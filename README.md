@@ -11,7 +11,7 @@ A fully featured RPG (Role Playing Game) plugin for NodeBB forums.
 
 Don't forget to [like NodeBB on Facebook](http://www.facebook.com/nodebb)!
 
-Check out the [latest NodeBB Forum Demo](http://try.nodebb.com) :)
+Check out the [latest NodeBB Forum Demo](http://community.nodebb.org) :)
 
 ## Credits
 
